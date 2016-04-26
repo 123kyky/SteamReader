@@ -18,6 +18,12 @@
 		7100339D1CCFF02600683DD7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100339C1CCFF02600683DD7 /* SearchViewController.swift */; };
 		7100339F1CCFF03B00683DD7 /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100339E1CCFF03B00683DD7 /* NewsItemViewController.swift */; };
 		710033A11CCFF04800683DD7 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710033A01CCFF04800683DD7 /* SubscriptionsViewController.swift */; };
+		710033A61CCFFA6100683DD7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710033A51CCFFA6100683DD7 /* SearchView.swift */; };
+		710033A81CCFFA7B00683DD7 /* GamesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710033A71CCFFA7B00683DD7 /* GamesTableView.swift */; };
+		710033AA1CCFFA8A00683DD7 /* GameTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710033A91CCFFA8A00683DD7 /* GameTableView.swift */; };
+		710033AC1CCFFAAF00683DD7 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710033AB1CCFFAAF00683DD7 /* SearchView.xib */; };
+		710033AE1CCFFABA00683DD7 /* GamesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710033AD1CCFFABA00683DD7 /* GamesTableView.xib */; };
+		710033B01CCFFAC200683DD7 /* GameTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710033AF1CCFFAC200683DD7 /* GameTableView.xib */; };
 		F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +63,12 @@
 		7100339C1CCFF02600683DD7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7100339E1CCFF03B00683DD7 /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
 		710033A01CCFF04800683DD7 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
+		710033A51CCFFA6100683DD7 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		710033A71CCFFA7B00683DD7 /* GamesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesTableView.swift; sourceTree = "<group>"; };
+		710033A91CCFFA8A00683DD7 /* GameTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableView.swift; sourceTree = "<group>"; };
+		710033AB1CCFFAAF00683DD7 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		710033AD1CCFFABA00683DD7 /* GamesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamesTableView.xib; sourceTree = "<group>"; };
+		710033AF1CCFFAC200683DD7 /* GameTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTableView.xib; sourceTree = "<group>"; };
 		89881229F1B8DE9CA5C183CF /* Pods-Steam Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steam Reader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Steam Reader/Pods-Steam Reader.release.xcconfig"; sourceTree = "<group>"; };
 		DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steam_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -115,6 +127,7 @@
 				7100337F1CCFE32B00683DD7 /* Application */,
 				710033821CCFE32B00683DD7 /* Assets.xcassets */,
 				7100338B1CCFE32B00683DD7 /* ViewController */,
+				710033A21CCFFA3D00683DD7 /* View */,
 				710033861CCFE32B00683DD7 /* Interface */,
 				710033831CCFE32B00683DD7 /* CoreData */,
 			);
@@ -162,6 +175,9 @@
 			children = (
 				710033871CCFE32B00683DD7 /* LaunchScreen.storyboard */,
 				710033891CCFE32B00683DD7 /* Main.storyboard */,
+				710033AB1CCFFAAF00683DD7 /* SearchView.xib */,
+				710033AD1CCFFABA00683DD7 /* GamesTableView.xib */,
+				710033AF1CCFFAC200683DD7 /* GameTableView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -174,6 +190,16 @@
 				710033A01CCFF04800683DD7 /* SubscriptionsViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		710033A21CCFFA3D00683DD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				710033A51CCFFA6100683DD7 /* SearchView.swift */,
+				710033A71CCFFA7B00683DD7 /* GamesTableView.swift */,
+				710033A91CCFFA8A00683DD7 /* GameTableView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8EB5E5E71579F043D0132387 /* Pods */ = {
@@ -301,9 +327,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7100339B1CCFED1100683DD7 /* Podfile in Resources */,
+				710033AC1CCFFAAF00683DD7 /* SearchView.xib in Resources */,
 				710033931CCFE32B00683DD7 /* Main.storyboard in Resources */,
+				710033AE1CCFFABA00683DD7 /* GamesTableView.xib in Resources */,
 				710033921CCFE32B00683DD7 /* LaunchScreen.storyboard in Resources */,
 				710033901CCFE32B00683DD7 /* Assets.xcassets in Resources */,
+				710033B01CCFFAC200683DD7 /* GameTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,9 +406,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7100339D1CCFF02600683DD7 /* SearchViewController.swift in Sources */,
+				710033A81CCFFA7B00683DD7 /* GamesTableView.swift in Sources */,
 				710033A11CCFF04800683DD7 /* SubscriptionsViewController.swift in Sources */,
+				710033AA1CCFFA8A00683DD7 /* GameTableView.swift in Sources */,
 				710033911CCFE32B00683DD7 /* Steam_Reader.xcdatamodeld in Sources */,
 				7100339F1CCFF03B00683DD7 /* NewsItemViewController.swift in Sources */,
+				710033A61CCFFA6100683DD7 /* SearchView.swift in Sources */,
 				7100338E1CCFE32B00683DD7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

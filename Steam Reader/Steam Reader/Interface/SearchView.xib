@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="Steam_Reader" customModuleProvider="target">
+            <connections>
+                <outlet property="collapseButton" destination="YQl-jV-OMd" id="sud-d7-hYY"/>
+                <outlet property="expandButton" destination="LSs-5u-SY3" id="v7z-Bo-Wib"/>
+                <outlet property="searchButton" destination="L2O-Qk-PCa" id="xv3-x4-ZLj"/>
+                <outlet property="searchContainer" destination="iN0-l3-epB" id="odr-fl-e1X"/>
+                <outlet property="searchField" destination="adk-LR-psk" id="BVS-Nd-d6i"/>
+                <outlet property="view" destination="OTp-WH-Eux" id="Eof-qu-YCs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="OTp-WH-Eux">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQl-jV-OMd">
+                            <rect key="frame" x="8" y="0.0" width="39" height="30"/>
+                            <state key="normal" title="Close"/>
+                            <connections>
+                                <action selector="collapseButtonTapped:" destination="-1" eventType="touchUpInside" id="97K-iX-wUs"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for a game..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adk-LR-psk">
+                            <rect key="frame" x="55" y="0.0" width="481" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="searchTextChanged:" destination="-1" eventType="editingDidEnd" id="z0K-Ow-A3J"/>
+                                <outlet property="delegate" destination="-1" id="MBM-cT-oev"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2O-Qk-PCa">
+                            <rect key="frame" x="544" y="0.0" width="48" height="30"/>
+                            <state key="normal" title="Search"/>
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="-1" eventType="touchUpInside" id="gro-vA-Vh5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="L2O-Qk-PCa" secondAttribute="trailing" constant="8" id="2O8-XW-ndj"/>
+                        <constraint firstItem="YQl-jV-OMd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GNr-7J-5Xl"/>
+                        <constraint firstItem="YQl-jV-OMd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="IvN-B0-llg"/>
+                        <constraint firstItem="adk-LR-psk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Snm-IR-Fgp"/>
+                        <constraint firstItem="L2O-Qk-PCa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZAy-Vg-IUa"/>
+                        <constraint firstItem="L2O-Qk-PCa" firstAttribute="leading" secondItem="adk-LR-psk" secondAttribute="trailing" constant="8" id="ish-ke-ahp"/>
+                        <constraint firstItem="adk-LR-psk" firstAttribute="leading" secondItem="YQl-jV-OMd" secondAttribute="trailing" constant="8" id="wha-zY-eyl"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSs-5u-SY3">
+                    <rect key="frame" x="276" y="0.0" width="48" height="30"/>
+                    <state key="normal" title="Search"/>
+                    <connections>
+                        <action selector="expandButtonTapped:" destination="-1" eventType="touchUpInside" id="xgV-b7-gGF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="An5-1n-5hZ"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="OTp-WH-Eux" secondAttribute="top" id="DCb-21-uaX"/>
+                <constraint firstItem="LSs-5u-SY3" firstAttribute="centerY" secondItem="OTp-WH-Eux" secondAttribute="centerY" id="E8v-74-cl3"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="centerY" secondItem="OTp-WH-Eux" secondAttribute="centerY" id="JFz-YN-UAI"/>
+                <constraint firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="ONS-RV-LP2"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="leading" secondItem="OTp-WH-Eux" secondAttribute="leading" id="PTl-iL-arJ"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="centerX" secondItem="OTp-WH-Eux" secondAttribute="centerX" id="deC-HA-urf"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="width" secondItem="OTp-WH-Eux" secondAttribute="width" id="gr3-B8-MjH"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="width" secondItem="OTp-WH-Eux" secondAttribute="width" id="nBP-wM-fj9"/>
+                <constraint firstItem="iN0-l3-epB" firstAttribute="height" secondItem="OTp-WH-Eux" secondAttribute="height" id="wxI-HX-hxf"/>
+                <constraint firstItem="LSs-5u-SY3" firstAttribute="centerX" secondItem="OTp-WH-Eux" secondAttribute="centerX" id="zbu-3z-bsL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="An5-1n-5hZ"/>
+                    <exclude reference="DCb-21-uaX"/>
+                    <exclude reference="ONS-RV-LP2"/>
+                    <exclude reference="PTl-iL-arJ"/>
+                    <exclude reference="gr3-B8-MjH"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="1095" y="868"/>
+        </view>
+    </objects>
+</document>

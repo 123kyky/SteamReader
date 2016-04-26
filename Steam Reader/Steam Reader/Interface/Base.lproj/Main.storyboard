@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Search View Controller-->
         <scene sceneID="z7n-fU-ArU">
             <objects>
-                <viewController id="io5-hd-1b0" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController id="io5-hd-1b0" customClass="SearchViewController" customModule="Steam_Reader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LoI-Kc-hp7"/>
                         <viewControllerLayoutGuide type="bottom" id="X6v-X7-JPi"/>
@@ -16,7 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="elZ-3O-Ave">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVK-KV-c0j" customClass="SearchView" customModule="Steam_Reader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rwz-BE-5oH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XVK-KV-c0j" firstAttribute="leading" secondItem="elZ-3O-Ave" secondAttribute="leadingMargin" id="4e4-QY-OXJ"/>
+                            <constraint firstItem="XVK-KV-c0j" firstAttribute="width" secondItem="elZ-3O-Ave" secondAttribute="width" id="Ggp-gV-fI5"/>
+                            <constraint firstItem="XVK-KV-c0j" firstAttribute="centerX" secondItem="elZ-3O-Ave" secondAttribute="centerX" id="WGL-OW-FfB"/>
+                            <constraint firstItem="X6v-X7-JPi" firstAttribute="top" secondItem="XVK-KV-c0j" secondAttribute="bottom" id="g2V-fX-lAp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XVK-KV-c0j" secondAttribute="trailing" id="gPQ-8S-mjx"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4e4-QY-OXJ"/>
+                                <exclude reference="gPQ-8S-mjx"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXf-Up-iID" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,7 +136,7 @@
         <!--Subscriptions View Controller-->
         <scene sceneID="xt6-W1-HYv">
             <objects>
-                <viewController id="7Pd-pq-Vxc" customClass="SubscriptionsViewController" sceneMemberID="viewController">
+                <viewController id="7Pd-pq-Vxc" customClass="SubscriptionsViewController" customModule="Steam_Reader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pKh-Z2-vfL"/>
                         <viewControllerLayoutGuide type="bottom" id="2gA-WM-kIe"/>
@@ -131,7 +154,7 @@
         <!--News Item View Controller-->
         <scene sceneID="hcq-Om-dXI">
             <objects>
-                <viewController id="Izt-0V-1Xm" customClass="NewsItemViewController" sceneMemberID="viewController">
+                <viewController id="Izt-0V-1Xm" customClass="NewsItemViewController" customModule="Steam_Reader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bb0-mL-CtY"/>
                         <viewControllerLayoutGuide type="bottom" id="mfw-MN-Det"/>
@@ -145,6 +168,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="914-cr-0Vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="931" y="-486"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="8My-99-bfv">
+            <objects>
+                <viewControllerPlaceholder id="QOw-ii-CZC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sf8-dc-dPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
