@@ -14,9 +14,10 @@
 		710033911CCFE32B00683DD7 /* Steam_Reader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 710033841CCFE32B00683DD7 /* Steam_Reader.xcdatamodeld */; };
 		710033921CCFE32B00683DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710033871CCFE32B00683DD7 /* LaunchScreen.storyboard */; };
 		710033931CCFE32B00683DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710033891CCFE32B00683DD7 /* Main.storyboard */; };
-		710033941CCFE32B00683DD7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100338C1CCFE32B00683DD7 /* DetailViewController.swift */; };
-		710033951CCFE32B00683DD7 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100338D1CCFE32B00683DD7 /* MasterViewController.swift */; };
 		7100339B1CCFED1100683DD7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7100339A1CCFED1100683DD7 /* Podfile */; };
+		7100339D1CCFF02600683DD7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100339C1CCFF02600683DD7 /* SearchViewController.swift */; };
+		7100339F1CCFF03B00683DD7 /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100339E1CCFF03B00683DD7 /* NewsItemViewController.swift */; };
+		710033A11CCFF04800683DD7 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710033A01CCFF04800683DD7 /* SubscriptionsViewController.swift */; };
 		F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,9 +53,10 @@
 		710033851CCFE32B00683DD7 /* Steam_Reader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Steam_Reader.xcdatamodel; sourceTree = "<group>"; };
 		710033881CCFE32B00683DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7100338A1CCFE32B00683DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7100338C1CCFE32B00683DD7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		7100338D1CCFE32B00683DD7 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		7100339A1CCFED1100683DD7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		7100339C1CCFF02600683DD7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7100339E1CCFF03B00683DD7 /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
+		710033A01CCFF04800683DD7 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		89881229F1B8DE9CA5C183CF /* Pods-Steam Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steam Reader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Steam Reader/Pods-Steam Reader.release.xcconfig"; sourceTree = "<group>"; };
 		DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steam_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -158,8 +160,8 @@
 		710033861CCFE32B00683DD7 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				710033891CCFE32B00683DD7 /* Main.storyboard */,
 				710033871CCFE32B00683DD7 /* LaunchScreen.storyboard */,
+				710033891CCFE32B00683DD7 /* Main.storyboard */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -167,8 +169,9 @@
 		7100338B1CCFE32B00683DD7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7100338D1CCFE32B00683DD7 /* MasterViewController.swift */,
-				7100338C1CCFE32B00683DD7 /* DetailViewController.swift */,
+				7100339C1CCFF02600683DD7 /* SearchViewController.swift */,
+				7100339E1CCFF03B00683DD7 /* NewsItemViewController.swift */,
+				710033A01CCFF04800683DD7 /* SubscriptionsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -373,10 +376,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				710033951CCFE32B00683DD7 /* MasterViewController.swift in Sources */,
+				7100339D1CCFF02600683DD7 /* SearchViewController.swift in Sources */,
+				710033A11CCFF04800683DD7 /* SubscriptionsViewController.swift in Sources */,
 				710033911CCFE32B00683DD7 /* Steam_Reader.xcdatamodeld in Sources */,
+				7100339F1CCFF03B00683DD7 /* NewsItemViewController.swift in Sources */,
 				7100338E1CCFE32B00683DD7 /* AppDelegate.swift in Sources */,
-				710033941CCFE32B00683DD7 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
