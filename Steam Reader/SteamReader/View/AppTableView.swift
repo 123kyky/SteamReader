@@ -1,5 +1,5 @@
 //
-//  GameTableView.swift
+//  AppTableView.swift
 //  Steam Reader
 //
 //  Created by Kyle Roberts on 4/26/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameTableView: UITableView {
+class AppTableView: UITableView {
 
     /*
     // Only override drawRect: if you perform custom drawing.

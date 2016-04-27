@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="Steam_Reader" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="SteamReader" customModuleProvider="target">
             <connections>
                 <outlet property="collapseButton" destination="YQl-jV-OMd" id="sud-d7-hYY"/>
                 <outlet property="expandButton" destination="LSs-5u-SY3" id="v7z-Bo-Wib"/>

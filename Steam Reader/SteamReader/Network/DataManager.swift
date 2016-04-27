@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import SwiftyJSON
 
 class DataManager: NSObject {
@@ -18,10 +19,12 @@ class DataManager: NSObject {
             appsRaw.append(["appId" : subJson["appid"].stringValue, "name" : subJson["name"].stringValue])
         }
         
-        App.MR_importFromArray(appsRaw)
+        App.MR_importFromArray(appsRaw, inContext: NSManagedObjectContext.MR_defaultContext())
         let ids = (appsRaw as NSArray).valueForKeyPath("appId") as! NSArray
         let predicate = NSPredicate(format: "NOT (appId IN %@)", ids)
-        App.MR_deleteAllMatchingPredicate(predicate)
+        App.MR_deleteAllMatchingPredicate(predicate, inContext: NSManagedObjectContext.MR_defaultContext())
+        
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
         print("Overwrote \(ids.count) apps in the database.")
     }

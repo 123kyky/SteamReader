@@ -6,10 +6,28 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Featured View Controller-->
+        <scene sceneID="HZm-Tt-Tku">
+            <objects>
+                <viewController id="IE7-21-iZA" customClass="FeaturedViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NOJ-VD-NAP"/>
+                        <viewControllerLayoutGuide type="bottom" id="tRj-u4-Xqf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9fp-K2-8QQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ovv-Er-rbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="-832"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="z7n-fU-ArU">
             <objects>
-                <viewController id="io5-hd-1b0" customClass="SearchViewController" customModule="Steam_Reader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="io5-hd-1b0" customClass="SearchViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LoI-Kc-hp7"/>
                         <viewControllerLayoutGuide type="bottom" id="X6v-X7-JPi"/>
@@ -18,14 +36,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVK-KV-c0j" customClass="SearchView" customModule="Steam_Reader" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVK-KV-c0j" customClass="SearchView" customModule="SteamReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="570" width="600" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Rwz-BE-5oH"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCD-Zc-KpD" customClass="GamesTableView" customModule="Steam_Reader" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCD-Zc-KpD" customClass="AppsTableView" customModule="SteamReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -53,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXf-Up-iID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="173" y="-486"/>
+            <point key="canvasLocation" x="111" y="-67"/>
         </scene>
         <!--Home-->
         <scene sceneID="ia6-5n-O2s">
@@ -73,8 +91,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZd-6I-ARn">
-                                                    <rect key="frame" x="273" y="11.5" width="54" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZd-6I-ARn">
+                                                    <rect key="frame" x="266" y="11" width="69" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -86,7 +104,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="io5-hd-1b0" kind="show" id="V0T-fe-wtr"/>
+                                            <segue destination="IE7-21-iZA" kind="show" id="seN-gS-kot"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SmM-EM-APS">
@@ -96,8 +114,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eB-vx-R2a">
-                                                    <rect key="frame" x="248" y="11" width="105" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eB-vx-R2a">
+                                                    <rect key="frame" x="273" y="11" width="54" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -109,7 +127,30 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7Pd-pq-Vxc" kind="show" id="dmc-8n-hgU"/>
+                                            <segue destination="io5-hd-1b0" kind="show" id="ba0-g8-IqD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uIt-JT-zbB">
+                                        <rect key="frame" x="0.0" y="152" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uIt-JT-zbB" id="LhS-7J-w8j">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnm-U6-HQ0">
+                                                    <rect key="frame" x="248" y="11" width="105" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lnm-U6-HQ0" firstAttribute="centerY" secondItem="LhS-7J-w8j" secondAttribute="centerY" id="9by-b5-Rht"/>
+                                                <constraint firstItem="Lnm-U6-HQ0" firstAttribute="centerX" secondItem="LhS-7J-w8j" secondAttribute="centerX" id="Lzx-U6-RaH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7Pd-pq-Vxc" kind="show" id="TTP-qr-TeL"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -145,7 +186,7 @@
         <!--Subscriptions View Controller-->
         <scene sceneID="xt6-W1-HYv">
             <objects>
-                <viewController id="7Pd-pq-Vxc" customClass="SubscriptionsViewController" customModule="Steam_Reader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Pd-pq-Vxc" customClass="SubscriptionsViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pKh-Z2-vfL"/>
                         <viewControllerLayoutGuide type="bottom" id="2gA-WM-kIe"/>
@@ -158,12 +199,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qm4-ne-P0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="173" y="269"/>
+            <point key="canvasLocation" x="111" y="711"/>
         </scene>
         <!--News Item View Controller-->
         <scene sceneID="hcq-Om-dXI">
             <objects>
-                <viewController id="Izt-0V-1Xm" customClass="NewsItemViewController" customModule="Steam_Reader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Izt-0V-1Xm" customClass="NewsItemViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bb0-mL-CtY"/>
                         <viewControllerLayoutGuide type="bottom" id="mfw-MN-Det"/>
@@ -176,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="914-cr-0Vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931" y="-486"/>
+            <point key="canvasLocation" x="933" y="-67"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="8My-99-bfv">
@@ -184,6 +225,7 @@
                 <viewControllerPlaceholder id="QOw-ii-CZC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sf8-dc-dPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-977.5" y="703"/>
         </scene>
     </scenes>
 </document>

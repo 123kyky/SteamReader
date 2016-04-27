@@ -1,5 +1,5 @@
 //
-//  GamesTableView.swift
+//  AppsTableView.swift
 //  Steam Reader
 //
 //  Created by Kyle Roberts on 4/26/16.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-protocol GamesTableViewDelegate {
-    func gamesTableGameSelected(gamesTable: GamesTableView, game: AnyObject)
+protocol AppsTableViewDelegate {
+    func gamesTableGameSelected(gamesTable: AppsTableView, game: AnyObject)
 }
 
-class GamesTableView: UIView, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet var tableView: GamesTableView!
+class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet var tableView: AppsTableView!
     
-    var games = []
+    var games: [App]
     
-    var delegate: GamesTableViewDelegate?
+    var delegate: AppsTableViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
+        games = App.MR_findAll() as? [App] ?? []
+        
         super.init(coder: aDecoder)
         
-        NSBundle.mainBundle().loadNibNamed("GamesTableView", owner: self, options: nil)
+        NSBundle.mainBundle().loadNibNamed("AppsTableView", owner: self, options: nil)
         self.addSubview(self.tableView)
         tableView.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
-        
-        NetworkTest.singleton.getRecentGames()
     }
     
     // MARK: - UITableView Delegate & DataSource
@@ -40,8 +40,17 @@ class GamesTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         return games.count
     }
     
+    let CellIdentifier = "Cell"
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: CellIdentifier)
+        }
+        
+        let app = games[indexPath.row]
+        cell!.textLabel!.text = app.name
+        
+        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

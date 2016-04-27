@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GamesTableView" customModule="Steam_Reader" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppsTableView" customModule="SteamReader" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="3o2-2l-Q6y" id="AHr-6a-AY9"/>
             </connections>

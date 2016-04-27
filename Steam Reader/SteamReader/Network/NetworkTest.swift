@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import MagicalRecord
+import Async
 
 class NetworkTest: NSObject {
     static let singleton = NetworkTest()
@@ -91,7 +92,9 @@ class NetworkTest: NSObject {
         Alamofire.request(.GET, "https://api.steampowered.com/ISteamApps/GetAppList/v0002/", parameters: ["key" : key])
             .responseJSON { response in
                 if let value = response.result.value {
-                    DataManager.singleton.overwriteApps(JSON(value))
+                    Async.background {
+                        DataManager.singleton.overwriteApps(JSON(value))
+                    }
                 }
         }
     }

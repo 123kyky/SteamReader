@@ -33,12 +33,12 @@
 		7100C08F1CD116C700016649 /* Steam_Reader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7100C06B1CD116C700016649 /* Steam_Reader.xcdatamodeld */; };
 		7100C0901CD116C700016649 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7100C06E1CD116C700016649 /* LaunchScreen.storyboard */; };
 		7100C0911CD116C700016649 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0701CD116C700016649 /* Main.storyboard */; };
-		7100C0921CD116C700016649 /* GamesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0721CD116C700016649 /* GamesTableView.xib */; };
-		7100C0931CD116C700016649 /* GameTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0731CD116C700016649 /* GameTableView.xib */; };
+		7100C0921CD116C700016649 /* AppsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0721CD116C700016649 /* AppsTableView.xib */; };
+		7100C0931CD116C700016649 /* AppTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0731CD116C700016649 /* AppTableView.xib */; };
 		7100C0941CD116C700016649 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0741CD116C700016649 /* SearchView.xib */; };
 		7100C0951CD116C700016649 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0761CD116C700016649 /* NetworkTest.swift */; };
-		7100C0961CD116C700016649 /* GamesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0781CD116C700016649 /* GamesTableView.swift */; };
-		7100C0971CD116C700016649 /* GameTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0791CD116C700016649 /* GameTableView.swift */; };
+		7100C0961CD116C700016649 /* AppsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0781CD116C700016649 /* AppsTableView.swift */; };
+		7100C0971CD116C700016649 /* AppTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0791CD116C700016649 /* AppTableView.swift */; };
 		7100C0981CD116C700016649 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07A1CD116C700016649 /* SearchView.swift */; };
 		7100C0991CD116C700016649 /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07C1CD116C700016649 /* NewsItemViewController.swift */; };
 		7100C09A1CD116C700016649 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07D1CD116C700016649 /* SearchViewController.swift */; };
@@ -46,6 +46,9 @@
 		7100C0A01CD1178400016649 /* Steam_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0811CD116C700016649 /* Steam_ReaderTests.swift */; };
 		7100C0A11CD1178900016649 /* Steam_ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0841CD116C700016649 /* Steam_ReaderUITests.swift */; };
 		7100C0A31CD1205900016649 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A21CD1205900016649 /* DataManager.swift */; };
+		7100C0A51CD12CAD00016649 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0A41CD12CAD00016649 /* Podfile */; };
+		7100C0A71CD1325F00016649 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A61CD1325F00016649 /* FeaturedViewController.swift */; };
+		DC5F5DC7F3D787D0490A992A /* Pods_SteamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */; };
 		F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6BDBFF39BC69EEAC863CE5B3 /* Pods-Steam Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steam Reader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Steam Reader/Pods-Steam Reader.debug.xcconfig"; sourceTree = "<group>"; };
 		710033471CCFE1F600683DD7 /* SteamReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		710033601CCFE1F600683DD7 /* SteamReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7100336B1CCFE1F600683DD7 /* SteamReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,12 +86,12 @@
 		7100C06C1CD116C700016649 /* Steam_Reader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Steam_Reader.xcdatamodel; sourceTree = "<group>"; };
 		7100C06F1CD116C700016649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7100C0711CD116C700016649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7100C0721CD116C700016649 /* GamesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamesTableView.xib; sourceTree = "<group>"; };
-		7100C0731CD116C700016649 /* GameTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTableView.xib; sourceTree = "<group>"; };
+		7100C0721CD116C700016649 /* AppsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppsTableView.xib; sourceTree = "<group>"; };
+		7100C0731CD116C700016649 /* AppTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppTableView.xib; sourceTree = "<group>"; };
 		7100C0741CD116C700016649 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		7100C0761CD116C700016649 /* NetworkTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
-		7100C0781CD116C700016649 /* GamesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesTableView.swift; sourceTree = "<group>"; };
-		7100C0791CD116C700016649 /* GameTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableView.swift; sourceTree = "<group>"; };
+		7100C0781CD116C700016649 /* AppsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableView.swift; sourceTree = "<group>"; };
+		7100C0791CD116C700016649 /* AppTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableView.swift; sourceTree = "<group>"; };
 		7100C07A1CD116C700016649 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7100C07C1CD116C700016649 /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
 		7100C07D1CD116C700016649 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -99,8 +101,12 @@
 		7100C0831CD116C700016649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7100C0841CD116C700016649 /* Steam_ReaderUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steam_ReaderUITests.swift; sourceTree = "<group>"; };
 		7100C0A21CD1205900016649 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		89881229F1B8DE9CA5C183CF /* Pods-Steam Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steam Reader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Steam Reader/Pods-Steam Reader.release.xcconfig"; sourceTree = "<group>"; };
+		7100C0A41CD12CAD00016649 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		7100C0A61CD1325F00016649 /* FeaturedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
+		97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steam_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B2778F33A4A6D10053742C /* Pods-SteamReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader.debug.xcconfig"; sourceTree = "<group>"; };
+		EF35916CC1F668D0CF3D0910 /* Pods-SteamReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */,
+				DC5F5DC7F3D787D0490A992A /* Pods_SteamReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,8 +175,9 @@
 		7100C05F1CD116C700016649 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				7100C0601CD116C700016649 /* AppDelegate.swift */,
 				7100C0611CD116C700016649 /* Info.plist */,
+				7100C0601CD116C700016649 /* AppDelegate.swift */,
+				7100C0A41CD12CAD00016649 /* Podfile */,
 				7100C0621CD116C700016649 /* SteamKey */,
 			);
 			path = Application;
@@ -194,9 +202,9 @@
 			children = (
 				7100C06E1CD116C700016649 /* LaunchScreen.storyboard */,
 				7100C0701CD116C700016649 /* Main.storyboard */,
-				7100C0721CD116C700016649 /* GamesTableView.xib */,
-				7100C0731CD116C700016649 /* GameTableView.xib */,
 				7100C0741CD116C700016649 /* SearchView.xib */,
+				7100C0721CD116C700016649 /* AppsTableView.xib */,
+				7100C0731CD116C700016649 /* AppTableView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -214,8 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				7100C07A1CD116C700016649 /* SearchView.swift */,
-				7100C0781CD116C700016649 /* GamesTableView.swift */,
-				7100C0791CD116C700016649 /* GameTableView.swift */,
+				7100C0781CD116C700016649 /* AppsTableView.swift */,
+				7100C0791CD116C700016649 /* AppTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,9 +231,10 @@
 		7100C07B1CD116C700016649 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7100C0A61CD1325F00016649 /* FeaturedViewController.swift */,
 				7100C07D1CD116C700016649 /* SearchViewController.swift */,
-				7100C07C1CD116C700016649 /* NewsItemViewController.swift */,
 				7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */,
+				7100C07C1CD116C700016649 /* NewsItemViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -251,8 +260,8 @@
 		8EB5E5E71579F043D0132387 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6BDBFF39BC69EEAC863CE5B3 /* Pods-Steam Reader.debug.xcconfig */,
-				89881229F1B8DE9CA5C183CF /* Pods-Steam Reader.release.xcconfig */,
+				E6B2778F33A4A6D10053742C /* Pods-SteamReader.debug.xcconfig */,
+				EF35916CC1F668D0CF3D0910 /* Pods-SteamReader.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -261,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */,
+				97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -378,11 +388,12 @@
 			files = (
 				7100C0941CD116C700016649 /* SearchView.xib in Resources */,
 				7100C0911CD116C700016649 /* Main.storyboard in Resources */,
+				7100C0A51CD12CAD00016649 /* Podfile in Resources */,
 				7100C0901CD116C700016649 /* LaunchScreen.storyboard in Resources */,
-				7100C0921CD116C700016649 /* GamesTableView.xib in Resources */,
+				7100C0921CD116C700016649 /* AppsTableView.xib in Resources */,
 				7100C0881CD116C700016649 /* Assets.xcassets in Resources */,
 				7100C0871CD116C700016649 /* SteamKey in Resources */,
-				7100C0931CD116C700016649 /* GameTableView.xib in Resources */,
+				7100C0931CD116C700016649 /* AppTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Steam Reader/Pods-Steam Reader-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7100C05D1CD1142700016649 /* ShellScript */ = {
@@ -443,7 +454,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Steam Reader/Pods-Steam Reader-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF023C22A51FB751B4805D77 /* Check Pods Manifest.lock */ = {
@@ -481,9 +492,10 @@
 				7100C08F1CD116C700016649 /* Steam_Reader.xcdatamodeld in Sources */,
 				7100C08C1CD116C700016649 /* App.swift in Sources */,
 				7100C09B1CD116C700016649 /* SubscriptionsViewController.swift in Sources */,
-				7100C0971CD116C700016649 /* GameTableView.swift in Sources */,
+				7100C0A71CD1325F00016649 /* FeaturedViewController.swift in Sources */,
+				7100C0971CD116C700016649 /* AppTableView.swift in Sources */,
 				7100C08A1CD116C700016649 /* _AppDetails.swift in Sources */,
-				7100C0961CD116C700016649 /* GamesTableView.swift in Sources */,
+				7100C0961CD116C700016649 /* AppsTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,7 +635,7 @@
 		};
 		710033751CCFE1F600683DD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BDBFF39BC69EEAC863CE5B3 /* Pods-Steam Reader.debug.xcconfig */;
+			baseConfigurationReference = E6B2778F33A4A6D10053742C /* Pods-SteamReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SteamReader/Application/Info.plist;
@@ -635,7 +647,7 @@
 		};
 		710033761CCFE1F600683DD7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89881229F1B8DE9CA5C183CF /* Pods-Steam Reader.release.xcconfig */;
+			baseConfigurationReference = EF35916CC1F668D0CF3D0910 /* Pods-SteamReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SteamReader/Application/Info.plist;

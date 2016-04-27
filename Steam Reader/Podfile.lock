@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.3.1)
+  - AsyncSwift (1.7.2)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
@@ -8,12 +9,14 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.3.1)
+  - AsyncSwift (~> 1.7.2)
   - MagicalRecord (~> 2.3.2)
   - SnapKit (~> 0.20.0)
-  - SwiftyJSON (~> 2.3.1)
+  - SwiftyJSON (~> 2.3.2)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   SnapKit: 5fce3c1bbbf1fbd31de9aa92f33eb9fa03f15650
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
