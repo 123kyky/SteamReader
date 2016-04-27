@@ -20,19 +20,28 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVK-KV-c0j" customClass="SearchView" customModule="Steam_Reader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="570" width="600" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Rwz-BE-5oH"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCD-Zc-KpD" customClass="GamesTableView" customModule="Steam_Reader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="506"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XVK-KV-c0j" firstAttribute="leading" secondItem="elZ-3O-Ave" secondAttribute="leadingMargin" id="4e4-QY-OXJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tCD-Zc-KpD" secondAttribute="trailing" constant="-20" id="8os-xe-EqX"/>
+                            <constraint firstItem="tCD-Zc-KpD" firstAttribute="centerX" secondItem="elZ-3O-Ave" secondAttribute="centerX" id="GND-fs-Y6q"/>
                             <constraint firstItem="XVK-KV-c0j" firstAttribute="width" secondItem="elZ-3O-Ave" secondAttribute="width" id="Ggp-gV-fI5"/>
+                            <constraint firstItem="tCD-Zc-KpD" firstAttribute="top" secondItem="LoI-Kc-hp7" secondAttribute="bottom" id="QiK-fx-QCB"/>
                             <constraint firstItem="XVK-KV-c0j" firstAttribute="centerX" secondItem="elZ-3O-Ave" secondAttribute="centerX" id="WGL-OW-FfB"/>
+                            <constraint firstItem="tCD-Zc-KpD" firstAttribute="leading" secondItem="elZ-3O-Ave" secondAttribute="leadingMargin" constant="-20" id="Xaj-EA-Cbi"/>
                             <constraint firstItem="X6v-X7-JPi" firstAttribute="top" secondItem="XVK-KV-c0j" secondAttribute="bottom" id="g2V-fX-lAp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XVK-KV-c0j" secondAttribute="trailing" id="gPQ-8S-mjx"/>
+                            <constraint firstItem="XVK-KV-c0j" firstAttribute="top" secondItem="tCD-Zc-KpD" secondAttribute="bottom" id="i0p-q8-c44"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
