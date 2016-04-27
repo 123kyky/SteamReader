@@ -28,8 +28,7 @@ class GamesTableView: UIView, UITableViewDelegate, UITableViewDataSource {
             make.edges.equalTo(self)
         }
         
-        let network = NetworkTest()
-        network.getRecentGames()
+        NetworkTest.singleton.getRecentGames()
     }
     
     // MARK: - UITableView Delegate & DataSource

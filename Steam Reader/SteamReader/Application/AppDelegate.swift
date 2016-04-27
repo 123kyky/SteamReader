@@ -34,12 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func setUpCoreData() {
         MagicalRecord.setupCoreDataStack()
-        MagicalRecord.setLoggingLevel(.Error)
+        MagicalRecord.setLoggingLevel(.Off)
     }
     
     func fetchSteamApps() {
-        let test = NetworkTest()
-        test.fetchAllApps()
+        NetworkTest.singleton.fetchAllApps()
     }
 
 }
