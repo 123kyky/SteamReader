@@ -158,10 +158,10 @@
 				7100C05F1CD116C700016649 /* Application */,
 				7100C0631CD116C700016649 /* Assets.xcassets */,
 				7100C0641CD116C700016649 /* CoreData */,
-				7100C06D1CD116C700016649 /* Interface */,
 				7100C0751CD116C700016649 /* Network */,
 				7100C0771CD116C700016649 /* View */,
 				7100C07B1CD116C700016649 /* ViewController */,
+				7100C06D1CD116C700016649 /* Interface */,
 			);
 			path = SteamReader;
 			sourceTree = "<group>";

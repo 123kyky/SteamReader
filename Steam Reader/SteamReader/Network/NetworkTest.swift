@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MagicalRecord
 
 class NetworkTest: NSObject {
     var key: NSString?
@@ -78,5 +79,30 @@ class NetworkTest: NSObject {
         
         // App Details
         // http://store.steampowered.com/api/appdetails?appids=57690
+    }
+    
+    func fetchAllApps() {
+        do {
+            let path = NSBundle.mainBundle().pathForResource("SteamKey", ofType: "")
+            self.key = try NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        } catch {
+            print("Error getting key from SteamKey file.")
+        }
+        
+        Alamofire.request(.GET, "https://api.steampowered.com/ISteamApps/GetAppList/v0002/", parameters: ["key" : key!])
+            .responseJSON { response in
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    for (_, subJson):(String, JSON) in json["applist", "apps"] {
+                        MagicalRecord.saveWithBlock({ (localContext) in
+                            let app = App.MR_createEntityInContext(localContext)
+                            app!.appId = subJson["appId"].string
+                            app!.name = subJson["name"].string
+                        })
+                    }
+                    
+                    print("Saved \(json["applist", "apps"].array!.count) apps to the database.")
+                }
+        }
     }
 }
