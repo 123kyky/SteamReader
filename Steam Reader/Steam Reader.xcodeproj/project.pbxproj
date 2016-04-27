@@ -24,6 +24,8 @@
 		710033AC1CCFFAAF00683DD7 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710033AB1CCFFAAF00683DD7 /* SearchView.xib */; };
 		710033AE1CCFFABA00683DD7 /* GamesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710033AD1CCFFABA00683DD7 /* GamesTableView.xib */; };
 		710033B01CCFFAC200683DD7 /* GameTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710033AF1CCFFAC200683DD7 /* GameTableView.xib */; };
+		7100C0551CD0EB4C00016649 /* SteamKey in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0541CD0EB4C00016649 /* SteamKey */; };
+		7100C0581CD0EBBB00016649 /* NetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0571CD0EBBA00016649 /* NetworkTest.swift */; };
 		F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +61,7 @@
 		710033851CCFE32B00683DD7 /* Steam_Reader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Steam_Reader.xcdatamodel; sourceTree = "<group>"; };
 		710033881CCFE32B00683DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7100338A1CCFE32B00683DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7100339A1CCFED1100683DD7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		7100339A1CCFED1100683DD7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7100339C1CCFF02600683DD7 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7100339E1CCFF03B00683DD7 /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
 		710033A01CCFF04800683DD7 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,8 @@
 		710033AB1CCFFAAF00683DD7 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		710033AD1CCFFABA00683DD7 /* GamesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamesTableView.xib; sourceTree = "<group>"; };
 		710033AF1CCFFAC200683DD7 /* GameTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameTableView.xib; sourceTree = "<group>"; };
+		7100C0541CD0EB4C00016649 /* SteamKey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SteamKey; sourceTree = "<group>"; };
+		7100C0571CD0EBBA00016649 /* NetworkTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTest.swift; sourceTree = "<group>"; };
 		89881229F1B8DE9CA5C183CF /* Pods-Steam Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steam Reader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Steam Reader/Pods-Steam Reader.release.xcconfig"; sourceTree = "<group>"; };
 		DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steam_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,6 +134,7 @@
 				710033A21CCFFA3D00683DD7 /* View */,
 				710033861CCFE32B00683DD7 /* Interface */,
 				710033831CCFE32B00683DD7 /* CoreData */,
+				7100C0561CD0EB9400016649 /* Network */,
 			);
 			path = "Steam Reader";
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				710033801CCFE32B00683DD7 /* AppDelegate.swift */,
 				710033811CCFE32B00683DD7 /* Info.plist */,
 				7100339A1CCFED1100683DD7 /* Podfile */,
+				7100C0541CD0EB4C00016649 /* SteamKey */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -200,6 +206,14 @@
 				710033A91CCFFA8A00683DD7 /* GameTableView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7100C0561CD0EB9400016649 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7100C0571CD0EBBA00016649 /* NetworkTest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		8EB5E5E71579F043D0132387 /* Pods */ = {
@@ -329,6 +343,7 @@
 				7100339B1CCFED1100683DD7 /* Podfile in Resources */,
 				710033AC1CCFFAAF00683DD7 /* SearchView.xib in Resources */,
 				710033931CCFE32B00683DD7 /* Main.storyboard in Resources */,
+				7100C0551CD0EB4C00016649 /* SteamKey in Resources */,
 				710033AE1CCFFABA00683DD7 /* GamesTableView.xib in Resources */,
 				710033921CCFE32B00683DD7 /* LaunchScreen.storyboard in Resources */,
 				710033901CCFE32B00683DD7 /* Assets.xcassets in Resources */,
@@ -409,6 +424,7 @@
 				710033A81CCFFA7B00683DD7 /* GamesTableView.swift in Sources */,
 				710033A11CCFF04800683DD7 /* SubscriptionsViewController.swift in Sources */,
 				710033AA1CCFFA8A00683DD7 /* GameTableView.swift in Sources */,
+				7100C0581CD0EBBB00016649 /* NetworkTest.swift in Sources */,
 				710033911CCFE32B00683DD7 /* Steam_Reader.xcdatamodeld in Sources */,
 				7100339F1CCFF03B00683DD7 /* NewsItemViewController.swift in Sources */,
 				710033A61CCFFA6100683DD7 /* SearchView.swift in Sources */,

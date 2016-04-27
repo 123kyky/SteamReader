@@ -27,6 +27,9 @@ class GamesTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+        
+        let network = NetworkTest()
+        network.getRecentGames()
     }
     
     // MARK: - UITableView Delegate & DataSource

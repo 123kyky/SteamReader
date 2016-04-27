@@ -10,7 +10,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.3.1)
   - MagicalRecord (~> 2.3.2)
   - SnapKit (~> 0.20.0)
-  - SwiftyJSON (~> 2.3.2)
+  - SwiftyJSON (~> 2.3.1)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
