@@ -75,5 +75,8 @@ class NetworkTest: NSObject {
                 
                 print(news)
         }
+        
+        // App Details
+        // http://store.steampowered.com/api/appdetails?appids=57690
     }
 }

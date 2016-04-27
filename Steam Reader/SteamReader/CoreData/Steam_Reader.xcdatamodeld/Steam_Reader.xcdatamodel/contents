@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="App" representedClassName="App" syncable="YES">
+        <attribute name="appId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppDetails" inverseName="app" inverseEntity="AppDetails" syncable="YES"/>
+    </entity>
+    <entity name="AppDetails" representedClassName="AppDetails" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="detailedDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="developers" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="dlc" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="finalPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="genres" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="headerImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="initialPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="metacritic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metacriticScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="supportsLinux" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="supportsMac" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="supportsWindows" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="App" inverseName="details" inverseEntity="App" syncable="YES"/>
+        <relationship name="newsItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NewsItem" inverseName="app" inverseEntity="NewsItem" syncable="YES"/>
+    </entity>
+    <entity name="NewsItem" representedClassName="NewsItem">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contents" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="feedLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feedName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isExternalURL" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="app" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AppDetails" inverseName="newsItems" inverseEntity="AppDetails" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <elements>
+        <element name="App" positionX="270" positionY="207" width="128" height="90"/>
+        <element name="AppDetails" positionX="261" positionY="198" width="128" height="315"/>
+        <element name="NewsItem" positionX="261" positionY="189" width="128" height="195"/>
+    </elements>
+</model>
