@@ -16,8 +16,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="dataSource" destination="-1" id="CJ3-sK-NTS"/>
-                <outlet property="delegate" destination="-1" id="lOB-x4-Pon"/>
+                <outlet property="dataSource" destination="-1" id="3f4-uE-rck"/>
+                <outlet property="delegate" destination="-1" id="PqE-El-NRr"/>
             </connections>
             <point key="canvasLocation" x="719" y="600"/>
         </tableView>

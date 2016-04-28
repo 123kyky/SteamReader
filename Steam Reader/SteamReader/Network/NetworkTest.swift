@@ -88,12 +88,25 @@ class NetworkTest: NSObject {
         // http://store.steampowered.com/api/appdetails?appids=57690
     }
     
+    // MARK: - Drafts
+    
     func fetchAllApps() {
         Alamofire.request(.GET, "https://api.steampowered.com/ISteamApps/GetAppList/v0002/", parameters: ["key" : key])
             .responseJSON { response in
                 if let value = response.result.value {
                     Async.background {
                         DataManager.singleton.overwriteApps(JSON(value))
+                    }
+                }
+        }
+    }
+    
+    func fetchNewsItemsForApp(app: App) {
+        Alamofire.request(.GET, "http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/", parameters: ["appid" : app.appId!, "count" : 10, "key" : key])
+            .responseJSON { response in
+                if let value = response.result.value {
+                    Async.background {
+                        DataManager.singleton.overwriteNewsItems(JSON(value), app: app)
                     }
                 }
         }

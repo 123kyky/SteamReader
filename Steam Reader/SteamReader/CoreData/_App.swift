@@ -11,6 +11,7 @@ public enum AppAttributes: String {
 
 public enum AppRelationships: String {
     case details = "details"
+    case newsItems = "newsItems"
 }
 
 public class _App: NSManagedObject {
@@ -48,6 +49,37 @@ public class _App: NSManagedObject {
 
     @NSManaged public
     var details: AppDetails?
+
+    @NSManaged public
+    var newsItems: NSSet
+
+}
+
+extension _App {
+
+    func addNewsItems(objects: NSSet) {
+        let mutable = self.newsItems.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.newsItems = mutable.copy() as! NSSet
+    }
+
+    func removeNewsItems(objects: NSSet) {
+        let mutable = self.newsItems.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.newsItems = mutable.copy() as! NSSet
+    }
+
+    func addNewsItemsObject(value: NewsItem) {
+        let mutable = self.newsItems.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.newsItems = mutable.copy() as! NSSet
+    }
+
+    func removeNewsItemsObject(value: NewsItem) {
+        let mutable = self.newsItems.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.newsItems = mutable.copy() as! NSSet
+    }
 
 }
 

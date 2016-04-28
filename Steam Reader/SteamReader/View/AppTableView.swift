@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol AppTableViewDelegate {
     func appTableNewsItemSelected(appTable: AppTableView, newsItem: NewsItem)
@@ -28,6 +29,13 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+        
+        performSelector(#selector(AppTableView.stuff), withObject: nil, afterDelay: 3)
+    }
+    
+    func stuff() {
+        newsItems = NewsItem.MR_findByAttribute("app", withValue: app) as? [NewsItem] ?? []
+        tableView.reloadData()
     }
     
     // MARK: - UITableView Delegate & DataSource

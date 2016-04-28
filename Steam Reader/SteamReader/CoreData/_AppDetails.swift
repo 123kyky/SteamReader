@@ -25,7 +25,6 @@ public enum AppDetailsAttributes: String {
 
 public enum AppDetailsRelationships: String {
     case app = "app"
-    case newsItems = "newsItems"
 }
 
 public class _AppDetails: NSManagedObject {
@@ -105,9 +104,6 @@ public class _AppDetails: NSManagedObject {
 
     @NSManaged public
     var app: App?
-
-    @NSManaged public
-    var newsItems: NewsItem?
 
 }
 

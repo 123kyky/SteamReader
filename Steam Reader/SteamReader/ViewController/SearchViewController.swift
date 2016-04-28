@@ -17,7 +17,7 @@ class SearchViewController: UIViewController, AppsTableViewDelegate, SearchViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        appsTableView.apps = App.MR_findAll() as? [App] ?? []
+        appsTableView.apps = DataManager.singleton.allApps()
         appsTableView.delegate = self
         searchView.delegate = self
         
@@ -29,6 +29,7 @@ class SearchViewController: UIViewController, AppsTableViewDelegate, SearchViewD
     
     let AppTableSegueIdentifier = "ShowAppTable"
     func appsTableAppSelected(appsTable: AppsTableView, app: App) {
+        NetworkTest.singleton.fetchNewsItemsForApp(app)
         performSegueWithIdentifier(AppTableSegueIdentifier, sender: app)
     }
     

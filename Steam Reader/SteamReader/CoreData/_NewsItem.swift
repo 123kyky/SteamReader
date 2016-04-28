@@ -75,35 +75,7 @@ public class _NewsItem: NSManagedObject {
     // MARK: - Relationships
 
     @NSManaged public
-    var app: NSOrderedSet
-
-}
-
-extension _NewsItem {
-
-    func addApp(objects: NSOrderedSet) {
-        let mutable = self.app.mutableCopy() as! NSMutableOrderedSet
-        mutable.unionOrderedSet(objects)
-        self.app = mutable.copy() as! NSOrderedSet
-    }
-
-    func removeApp(objects: NSOrderedSet) {
-        let mutable = self.app.mutableCopy() as! NSMutableOrderedSet
-        mutable.minusOrderedSet(objects)
-        self.app = mutable.copy() as! NSOrderedSet
-    }
-
-    func addAppObject(value: AppDetails) {
-        let mutable = self.app.mutableCopy() as! NSMutableOrderedSet
-        mutable.addObject(value)
-        self.app = mutable.copy() as! NSOrderedSet
-    }
-
-    func removeAppObject(value: AppDetails) {
-        let mutable = self.app.mutableCopy() as! NSMutableOrderedSet
-        mutable.removeObject(value)
-        self.app = mutable.copy() as! NSOrderedSet
-    }
+    var app: App?
 
 }
 
