@@ -1,8 +1,8 @@
 //
 //  NewsItemViewController.swift
-//  Steam Reader
+//  SteamReader
 //
-//  Created by Kyle Roberts on 4/26/16.
+//  Created by Kyle Roberts on 4/28/16.
 //  Copyright © 2016 Kyle Roberts. All rights reserved.
 //
 

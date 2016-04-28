@@ -35,7 +35,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <action selector="searchTextChanged:" destination="-1" eventType="editingDidEnd" id="z0K-Ow-A3J"/>
+                                <action selector="searchTextChanged:" destination="-1" eventType="editingChanged" id="Sb6-h2-FXG"/>
                                 <outlet property="delegate" destination="-1" id="MBM-cT-oev"/>
                             </connections>
                         </textField>

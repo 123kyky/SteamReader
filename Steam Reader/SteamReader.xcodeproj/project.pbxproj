@@ -40,7 +40,7 @@
 		7100C0961CD116C700016649 /* AppsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0781CD116C700016649 /* AppsTableView.swift */; };
 		7100C0971CD116C700016649 /* AppTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0791CD116C700016649 /* AppTableView.swift */; };
 		7100C0981CD116C700016649 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07A1CD116C700016649 /* SearchView.swift */; };
-		7100C0991CD116C700016649 /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07C1CD116C700016649 /* NewsItemViewController.swift */; };
+		7100C0991CD116C700016649 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07C1CD116C700016649 /* AppViewController.swift */; };
 		7100C09A1CD116C700016649 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07D1CD116C700016649 /* SearchViewController.swift */; };
 		7100C09B1CD116C700016649 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */; };
 		7100C0A01CD1178400016649 /* Steam_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0811CD116C700016649 /* Steam_ReaderTests.swift */; };
@@ -48,6 +48,7 @@
 		7100C0A31CD1205900016649 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A21CD1205900016649 /* DataManager.swift */; };
 		7100C0A51CD12CAD00016649 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0A41CD12CAD00016649 /* Podfile */; };
 		7100C0A71CD1325F00016649 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A61CD1325F00016649 /* FeaturedViewController.swift */; };
+		71EDD50B1CD2800F00D21A9E /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */; };
 		DC5F5DC7F3D787D0490A992A /* Pods_SteamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */; };
 		F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */; };
 /* End PBXBuildFile section */
@@ -93,7 +94,7 @@
 		7100C0781CD116C700016649 /* AppsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableView.swift; sourceTree = "<group>"; };
 		7100C0791CD116C700016649 /* AppTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableView.swift; sourceTree = "<group>"; };
 		7100C07A1CD116C700016649 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		7100C07C1CD116C700016649 /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
+		7100C07C1CD116C700016649 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		7100C07D1CD116C700016649 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		7100C0801CD116C700016649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		7100C0A21CD1205900016649 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7100C0A41CD12CAD00016649 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		7100C0A61CD1325F00016649 /* FeaturedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
+		71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
 		97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steam_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6B2778F33A4A6D10053742C /* Pods-SteamReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader.debug.xcconfig"; sourceTree = "<group>"; };
@@ -231,10 +233,11 @@
 		7100C07B1CD116C700016649 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7100C0A61CD1325F00016649 /* FeaturedViewController.swift */,
 				7100C07D1CD116C700016649 /* SearchViewController.swift */,
+				7100C07C1CD116C700016649 /* AppViewController.swift */,
+				71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */,
+				7100C0A61CD1325F00016649 /* FeaturedViewController.swift */,
 				7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */,
-				7100C07C1CD116C700016649 /* NewsItemViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -484,7 +487,8 @@
 				7100C08E1CD116C700016649 /* NewsItem.swift in Sources */,
 				7100C08B1CD116C700016649 /* _NewsItem.swift in Sources */,
 				7100C08D1CD116C700016649 /* AppDetails.swift in Sources */,
-				7100C0991CD116C700016649 /* NewsItemViewController.swift in Sources */,
+				7100C0991CD116C700016649 /* AppViewController.swift in Sources */,
+				71EDD50B1CD2800F00D21A9E /* NewsItemViewController.swift in Sources */,
 				7100C0981CD116C700016649 /* SearchView.swift in Sources */,
 				7100C0951CD116C700016649 /* NetworkTest.swift in Sources */,
 				7100C0891CD116C700016649 /* _App.swift in Sources */,

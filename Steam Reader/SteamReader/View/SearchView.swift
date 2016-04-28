@@ -49,7 +49,8 @@ class SearchView: UIView, UITextFieldDelegate {
             self.searchContainer.alpha = 1
         }
         
-        self.delegate?.searchViewExpanded(self)
+        delegate?.searchViewExpanded(self)
+        searchField.becomeFirstResponder()
     }
     
     @IBAction func collapseButtonTapped(sender: AnyObject) {
@@ -59,14 +60,16 @@ class SearchView: UIView, UITextFieldDelegate {
             self.searchContainer.alpha = 0
         }
         
-        self.delegate?.searchViewCollapsed(self)
+        delegate?.searchViewCollapsed(self)
+        delegate?.searchViewSearched(self, searchText: "")
+        searchField.resignFirstResponder()
     }
     
     @IBAction func searchTextChanged(sender: AnyObject) {
-        self.delegate?.searchViewTextUpdated(self, searchText: searchField.text!)
+        //delegate?.searchViewTextUpdated(self, searchText: searchField.text!)
     }
     
     @IBAction func searchButtonTapped(sender: AnyObject) {
-        self.delegate?.searchViewSearched(self, searchText: searchField.text!)
+        delegate?.searchViewSearched(self, searchText: searchField.text!)
     }
 }

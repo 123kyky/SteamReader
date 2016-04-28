@@ -9,52 +9,68 @@
 import UIKit
 
 protocol AppsTableViewDelegate {
-    func gamesTableGameSelected(gamesTable: AppsTableView, game: AnyObject)
+    func appsTableAppSelected(appsTable: AppsTableView, app: App)
 }
 
 class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet var tableView: AppsTableView!
+    @IBOutlet var tableView: UITableView!
     
-    var games: [App]
+    var filteredApps: [App]!
+    var apps: [App]! {
+        didSet {
+            filteredApps = apps
+        }
+    }
     
     var delegate: AppsTableViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
-        games = App.MR_findAll() as? [App] ?? []
-        
         super.init(coder: aDecoder)
         
         NSBundle.mainBundle().loadNibNamed("AppsTableView", owner: self, options: nil)
-        self.addSubview(self.tableView)
+        addSubview(tableView)
         tableView.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
     }
     
+    func filter(searchText: String) {
+        if searchText == "" {
+            filteredApps = apps
+        } else {
+            filteredApps = apps.filter { (app) -> Bool in
+                return app.name!.lowercaseString.containsString(searchText.lowercaseString)
+            }
+        }
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - UITableView Delegate & DataSource
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+        return filteredApps.count
     }
     
-    let CellIdentifier = "Cell"
+    let CellIdentifier = "AppCell"
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: CellIdentifier)
         }
         
-        let app = games[indexPath.row]
+        let app = filteredApps[indexPath.row]
         cell!.textLabel!.text = app.name
         
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.delegate?.gamesTableGameSelected(self, game: games[indexPath.row])
+        delegate?.appsTableAppSelected(self, app: filteredApps[indexPath.row])
     }
     
 }

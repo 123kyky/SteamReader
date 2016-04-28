@@ -68,6 +68,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="appsTableView" destination="tCD-Zc-KpD" id="3f0-HQ-saR"/>
+                        <outlet property="searchView" destination="XVK-KV-c0j" id="YuO-zc-krG"/>
+                        <outlet property="searchViewBottomConstraint" destination="g2V-fX-lAp" id="mbo-dR-qhi"/>
+                        <segue destination="Izt-0V-1Xm" kind="show" identifier="ShowAppTable" id="RlN-aa-Ekl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXf-Up-iID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="111" y="711"/>
         </scene>
-        <!--News Item View Controller-->
+        <!--App View Controller-->
         <scene sceneID="hcq-Om-dXI">
             <objects>
-                <viewController id="Izt-0V-1Xm" customClass="NewsItemViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Izt-0V-1Xm" customClass="AppViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bb0-mL-CtY"/>
                         <viewControllerLayoutGuide type="bottom" id="mfw-MN-Det"/>
@@ -212,8 +218,25 @@
                     <view key="view" contentMode="scaleToFill" id="xIq-ic-wm2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ha-Gm-UKJ" customClass="AppTableView" customModule="SteamReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="8ha-Gm-UKJ" secondAttribute="trailing" constant="-20" id="2bE-yL-tde"/>
+                            <constraint firstItem="8ha-Gm-UKJ" firstAttribute="top" secondItem="bb0-mL-CtY" secondAttribute="bottom" id="LP6-sj-jjM"/>
+                            <constraint firstItem="8ha-Gm-UKJ" firstAttribute="leading" secondItem="xIq-ic-wm2" secondAttribute="leadingMargin" constant="-20" id="Mdo-dk-xz0"/>
+                            <constraint firstItem="8ha-Gm-UKJ" firstAttribute="centerX" secondItem="xIq-ic-wm2" secondAttribute="centerX" id="WnC-Rd-nor"/>
+                            <constraint firstItem="mfw-MN-Det" firstAttribute="top" secondItem="8ha-Gm-UKJ" secondAttribute="bottom" id="ZrC-5N-u0m"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appTableView" destination="8ha-Gm-UKJ" id="kR7-3T-FxM"/>
+                        <segue destination="2Ru-6l-rN6" kind="show" identifier="showNewsItem" id="1gb-ic-Djz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="914-cr-0Vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,6 +249,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sf8-dc-dPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-977.5" y="703"/>
+        </scene>
+        <!--News Item View Controller-->
+        <scene sceneID="yCC-fv-XZC">
+            <objects>
+                <viewController id="2Ru-6l-rN6" customClass="NewsItemViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X6X-9b-KAO"/>
+                        <viewControllerLayoutGuide type="bottom" id="tNS-Jl-g9J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yah-R0-pDD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfD-KK-yVg" customClass="AppsTableView" customModule="SteamReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cfD-KK-yVg" firstAttribute="centerX" secondItem="yah-R0-pDD" secondAttribute="centerX" id="E6k-6T-IDX"/>
+                            <constraint firstItem="tNS-Jl-g9J" firstAttribute="top" secondItem="cfD-KK-yVg" secondAttribute="bottom" id="Hwf-jx-Uju"/>
+                            <constraint firstItem="cfD-KK-yVg" firstAttribute="leading" secondItem="yah-R0-pDD" secondAttribute="leadingMargin" constant="-20" id="Jhf-fa-cOt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cfD-KK-yVg" secondAttribute="trailing" constant="-20" id="M9q-y3-21L"/>
+                            <constraint firstItem="cfD-KK-yVg" firstAttribute="top" secondItem="X6X-9b-KAO" secondAttribute="bottom" id="jcZ-lT-CdD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a78-jl-hsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="-67"/>
         </scene>
     </scenes>
 </document>
