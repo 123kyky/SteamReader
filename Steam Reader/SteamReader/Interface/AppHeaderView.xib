@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppHeaderView" customModule="SteamReader" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="8hU-ec-k6r" id="xNe-PJ-Ygp"/>
+                <outlet property="nameLabel" destination="GkR-7L-6ag" id="KFs-cM-sxc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="xQJ-k8-apa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hU-ec-k6r">
+                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkR-7L-6ag">
+                    <rect key="frame" x="88" y="29" width="224" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8hU-ec-k6r" secondAttribute="bottom" id="0RM-c0-jeK"/>
+                <constraint firstAttribute="trailing" secondItem="GkR-7L-6ag" secondAttribute="trailing" constant="8" id="6R2-ay-cXW"/>
+                <constraint firstItem="GkR-7L-6ag" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="OV5-DH-tRv"/>
+                <constraint firstItem="GkR-7L-6ag" firstAttribute="leading" secondItem="8hU-ec-k6r" secondAttribute="trailing" constant="8" id="Uwi-oM-2TJ"/>
+                <constraint firstItem="8hU-ec-k6r" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:1" id="im9-LH-fP3"/>
+                <constraint firstItem="8hU-ec-k6r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ogJ-n1-p4E"/>
+                <constraint firstItem="8hU-ec-k6r" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="t9T-8h-SfA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

@@ -32,6 +32,8 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+        
+        tableView.registerClass(AppHeaderCell.self, forCellReuseIdentifier: CellIdentifier)
     }
     
     func filter(searchText: String) {
@@ -58,13 +60,13 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     let CellIdentifier = "AppCell"
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)
+        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? AppHeaderCell
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: CellIdentifier)
+            cell = AppHeaderCell(style: .Default, reuseIdentifier: CellIdentifier)
         }
         
         let app = filteredApps[indexPath.row]
-        cell!.textLabel!.text = app.name
+        cell!.appView!.configure(app)
         
         return cell!
     }

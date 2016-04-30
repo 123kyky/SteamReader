@@ -38,14 +38,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVK-KV-c0j" customClass="SearchView" customModule="SteamReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="570" width="600" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Rwz-BE-5oH"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCD-Zc-KpD" customClass="AppsTableView" customModule="SteamReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="506"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,7 +100,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZd-6I-ARn">
                                                     <rect key="frame" x="266" y="11" width="69" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -123,7 +123,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eB-vx-R2a">
                                                     <rect key="frame" x="273" y="11" width="54" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -146,7 +146,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnm-U6-HQ0">
                                                     <rect key="frame" x="248" y="11" width="105" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -220,22 +220,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ha-Gm-UKJ" customClass="AppTableView" customModule="SteamReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="8ha-Gm-UKJ" secondAttribute="trailing" constant="-20" id="2bE-yL-tde"/>
-                            <constraint firstItem="8ha-Gm-UKJ" firstAttribute="top" secondItem="bb0-mL-CtY" secondAttribute="bottom" id="LP6-sj-jjM"/>
                             <constraint firstItem="8ha-Gm-UKJ" firstAttribute="leading" secondItem="xIq-ic-wm2" secondAttribute="leadingMargin" constant="-20" id="Mdo-dk-xz0"/>
                             <constraint firstItem="8ha-Gm-UKJ" firstAttribute="centerX" secondItem="xIq-ic-wm2" secondAttribute="centerX" id="WnC-Rd-nor"/>
                             <constraint firstItem="mfw-MN-Det" firstAttribute="top" secondItem="8ha-Gm-UKJ" secondAttribute="bottom" id="ZrC-5N-u0m"/>
+                            <constraint firstItem="8ha-Gm-UKJ" firstAttribute="top" secondItem="bb0-mL-CtY" secondAttribute="bottom" constant="-64" id="lNS-AA-6mY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appTableView" destination="8ha-Gm-UKJ" id="kR7-3T-FxM"/>
-                        <segue destination="2Ru-6l-rN6" kind="show" identifier="showNewsItem" id="1gb-ic-Djz"/>
+                        <segue destination="2Ru-6l-rN6" kind="show" identifier="ShowNewsItem" id="1gb-ic-Djz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="914-cr-0Vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,20 +262,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfD-KK-yVg" customClass="AppsTableView" customModule="SteamReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjl-ZG-P4X" customClass="AppHeaderView" customModule="SteamReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="80"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="DMP-6T-ydW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52Y-vS-3A7" customClass="NewsItemView" customModule="SteamReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="144" width="600" height="456"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cfD-KK-yVg" firstAttribute="centerX" secondItem="yah-R0-pDD" secondAttribute="centerX" id="E6k-6T-IDX"/>
-                            <constraint firstItem="tNS-Jl-g9J" firstAttribute="top" secondItem="cfD-KK-yVg" secondAttribute="bottom" id="Hwf-jx-Uju"/>
-                            <constraint firstItem="cfD-KK-yVg" firstAttribute="leading" secondItem="yah-R0-pDD" secondAttribute="leadingMargin" constant="-20" id="Jhf-fa-cOt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cfD-KK-yVg" secondAttribute="trailing" constant="-20" id="M9q-y3-21L"/>
-                            <constraint firstItem="cfD-KK-yVg" firstAttribute="top" secondItem="X6X-9b-KAO" secondAttribute="bottom" id="jcZ-lT-CdD"/>
+                            <constraint firstItem="52Y-vS-3A7" firstAttribute="top" secondItem="rjl-ZG-P4X" secondAttribute="bottom" id="3bt-ws-5Q2"/>
+                            <constraint firstItem="52Y-vS-3A7" firstAttribute="leading" secondItem="yah-R0-pDD" secondAttribute="leadingMargin" constant="-20" id="HXE-yE-3Nu"/>
+                            <constraint firstItem="rjl-ZG-P4X" firstAttribute="top" secondItem="X6X-9b-KAO" secondAttribute="bottom" id="KPV-HL-C2m"/>
+                            <constraint firstItem="rjl-ZG-P4X" firstAttribute="centerY" secondItem="yah-R0-pDD" secondAttribute="centerY" id="Rpb-AR-35g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rjl-ZG-P4X" secondAttribute="trailing" constant="-20" id="aET-3P-L2o"/>
+                            <constraint firstItem="tNS-Jl-g9J" firstAttribute="top" secondItem="52Y-vS-3A7" secondAttribute="bottom" id="e2J-IP-G0d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="52Y-vS-3A7" secondAttribute="trailing" constant="-20" id="grr-XL-Yob"/>
+                            <constraint firstItem="rjl-ZG-P4X" firstAttribute="centerX" secondItem="yah-R0-pDD" secondAttribute="centerX" id="kNs-oh-tH8"/>
+                            <constraint firstItem="52Y-vS-3A7" firstAttribute="centerX" secondItem="yah-R0-pDD" secondAttribute="centerX" id="uT9-Cl-1CE"/>
+                            <constraint firstItem="rjl-ZG-P4X" firstAttribute="leading" secondItem="yah-R0-pDD" secondAttribute="leadingMargin" constant="-20" id="wQO-Nk-FjF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Rpb-AR-35g"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="appHeaderView" destination="rjl-ZG-P4X" id="K2j-Xc-Q5Z"/>
+                        <outlet property="newsItemView" destination="52Y-vS-3A7" id="cVE-Nz-3kF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a78-jl-hsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

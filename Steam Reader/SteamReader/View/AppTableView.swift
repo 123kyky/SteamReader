@@ -31,6 +31,9 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
         
         performSelector(#selector(AppTableView.stuff), withObject: nil, afterDelay: 3)
+        
+        tableView.registerClass(AppHeaderCell.self, forCellReuseIdentifier: HeaderIdentifier)
+        tableView.registerClass(NewsItemHeaderCell.self, forCellReuseIdentifier: CellIdentifier)
     }
     
     func stuff() {
@@ -39,6 +42,18 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - UITableView Delegate & DataSource
+    
+    let HeaderIdentifier = "AppHeaderCellIdentifier"
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var cell = tableView.dequeueReusableCellWithIdentifier(HeaderIdentifier) as? AppHeaderCell
+        if cell == nil {
+            cell = AppHeaderCell(style: .Default, reuseIdentifier: CellIdentifier)
+        }
+        
+        cell!.appView!.configure(app)
+        
+        return cell!
+    }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return app.name
@@ -52,15 +67,15 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         return newsItems.count
     }
     
-    let CellIdentifier = "NewItemCell"
+    let CellIdentifier = "NewsItemCell"
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)
+        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? NewsItemHeaderCell
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: CellIdentifier)
+            cell = NewsItemHeaderCell(style: .Default, reuseIdentifier: CellIdentifier)
         }
         
         let newsItem = newsItems[indexPath.row]
-        cell!.textLabel!.text = newsItem.title
+        cell!.newsItemView!.configure(newsItem)
         
         return cell!
     }

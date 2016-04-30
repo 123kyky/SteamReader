@@ -23,8 +23,18 @@ class AppViewController: UIViewController, AppTableViewDelegate {
     
     // MARK: - AppTableViewDelegate
     
+    let NewsItemSegueIdentifier = "ShowNewsItem"
     func appTableNewsItemSelected(appTable: AppTableView, newsItem: NewsItem) {
-        
+        NetworkTest.singleton.fetchNewsItemsForApp(app)
+        performSegueWithIdentifier(NewsItemSegueIdentifier, sender: newsItem)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == NewsItemSegueIdentifier {
+            if let destinationViewController = segue.destinationViewController as? NewsItemViewController {
+                destinationViewController.newsItem = sender as! NewsItem
+            }
+        }
     }
 
 }

@@ -48,6 +48,12 @@
 		7100C0A31CD1205900016649 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A21CD1205900016649 /* DataManager.swift */; };
 		7100C0A51CD12CAD00016649 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0A41CD12CAD00016649 /* Podfile */; };
 		7100C0A71CD1325F00016649 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A61CD1325F00016649 /* FeaturedViewController.swift */; };
+		7112D3711CD3978D005AF0FD /* NewsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7112D3701CD3978D005AF0FD /* NewsItemView.xib */; };
+		7112D3731CD397D9005AF0FD /* AppHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7112D3721CD397D9005AF0FD /* AppHeaderView.xib */; };
+		7112D3751CD39813005AF0FD /* AppHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112D3741CD39813005AF0FD /* AppHeaderView.swift */; };
+		7112D3771CD39835005AF0FD /* NewsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112D3761CD39835005AF0FD /* NewsItemView.swift */; };
+		7112D37B1CD3A885005AF0FD /* NewsItemHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7112D37A1CD3A885005AF0FD /* NewsItemHeaderView.xib */; };
+		7112D37D1CD3A8B1005AF0FD /* NewsItemHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112D37C1CD3A8B1005AF0FD /* NewsItemHeaderView.swift */; };
 		71EDD50B1CD2800F00D21A9E /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */; };
 		DC5F5DC7F3D787D0490A992A /* Pods_SteamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */; };
 		F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */; };
@@ -104,6 +110,12 @@
 		7100C0A21CD1205900016649 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7100C0A41CD12CAD00016649 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		7100C0A61CD1325F00016649 /* FeaturedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
+		7112D3701CD3978D005AF0FD /* NewsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsItemView.xib; sourceTree = "<group>"; };
+		7112D3721CD397D9005AF0FD /* AppHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppHeaderView.xib; sourceTree = "<group>"; };
+		7112D3741CD39813005AF0FD /* AppHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHeaderView.swift; sourceTree = "<group>"; };
+		7112D3761CD39835005AF0FD /* NewsItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemView.swift; sourceTree = "<group>"; };
+		7112D37A1CD3A885005AF0FD /* NewsItemHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsItemHeaderView.xib; sourceTree = "<group>"; };
+		7112D37C1CD3A8B1005AF0FD /* NewsItemHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemHeaderView.swift; sourceTree = "<group>"; };
 		71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
 		97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steam_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,8 +217,11 @@
 				7100C06E1CD116C700016649 /* LaunchScreen.storyboard */,
 				7100C0701CD116C700016649 /* Main.storyboard */,
 				7100C0741CD116C700016649 /* SearchView.xib */,
+				7112D3721CD397D9005AF0FD /* AppHeaderView.xib */,
 				7100C0721CD116C700016649 /* AppsTableView.xib */,
 				7100C0731CD116C700016649 /* AppTableView.xib */,
+				7112D37A1CD3A885005AF0FD /* NewsItemHeaderView.xib */,
+				7112D3701CD3978D005AF0FD /* NewsItemView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -224,8 +239,11 @@
 			isa = PBXGroup;
 			children = (
 				7100C07A1CD116C700016649 /* SearchView.swift */,
+				7112D3741CD39813005AF0FD /* AppHeaderView.swift */,
 				7100C0781CD116C700016649 /* AppsTableView.swift */,
 				7100C0791CD116C700016649 /* AppTableView.swift */,
+				7112D37C1CD3A8B1005AF0FD /* NewsItemHeaderView.swift */,
+				7112D3761CD39835005AF0FD /* NewsItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,6 +309,7 @@
 				718FA476FD5C2D83734FC1A2 /* Embed Pods Frameworks */,
 				710033431CCFE1F600683DD7 /* Sources */,
 				2E1E4365AC8F6042CD5E999B /* Copy Pods Resources */,
+				7112D37E1CD3ABC5005AF0FD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -392,10 +411,13 @@
 				7100C0941CD116C700016649 /* SearchView.xib in Resources */,
 				7100C0911CD116C700016649 /* Main.storyboard in Resources */,
 				7100C0A51CD12CAD00016649 /* Podfile in Resources */,
+				7112D3731CD397D9005AF0FD /* AppHeaderView.xib in Resources */,
 				7100C0901CD116C700016649 /* LaunchScreen.storyboard in Resources */,
+				7112D37B1CD3A885005AF0FD /* NewsItemHeaderView.xib in Resources */,
 				7100C0921CD116C700016649 /* AppsTableView.xib in Resources */,
 				7100C0881CD116C700016649 /* Assets.xcassets in Resources */,
 				7100C0871CD116C700016649 /* SteamKey in Resources */,
+				7112D3711CD3978D005AF0FD /* NewsItemView.xib in Resources */,
 				7100C0931CD116C700016649 /* AppTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +467,19 @@
 			shellPath = /bin/sh;
 			shellScript = "mogenerator -m \"SteamReader/CoreData/Steam_Reader.xcdatamodeld\" -O SteamReader/CoreData --swift --template-var arc=true";
 		};
+		7112D37E1CD3ABC5005AF0FD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nFILE_EXTENSIONS=\"swift\"\nfind -E \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -regex \".*\\.($FILE_EXTENSIONS)$\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
 		718FA476FD5C2D83734FC1A2 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,9 +517,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7112D3771CD39835005AF0FD /* NewsItemView.swift in Sources */,
 				7100C0851CD116C700016649 /* AppDelegate.swift in Sources */,
 				7100C0A31CD1205900016649 /* DataManager.swift in Sources */,
 				7100C08E1CD116C700016649 /* NewsItem.swift in Sources */,
+				7112D3751CD39813005AF0FD /* AppHeaderView.swift in Sources */,
 				7100C08B1CD116C700016649 /* _NewsItem.swift in Sources */,
 				7100C08D1CD116C700016649 /* AppDetails.swift in Sources */,
 				7100C0991CD116C700016649 /* AppViewController.swift in Sources */,
@@ -492,6 +529,7 @@
 				7100C0981CD116C700016649 /* SearchView.swift in Sources */,
 				7100C0951CD116C700016649 /* NetworkTest.swift in Sources */,
 				7100C0891CD116C700016649 /* _App.swift in Sources */,
+				7112D37D1CD3A8B1005AF0FD /* NewsItemHeaderView.swift in Sources */,
 				7100C09A1CD116C700016649 /* SearchViewController.swift in Sources */,
 				7100C08F1CD116C700016649 /* Steam_Reader.xcdatamodeld in Sources */,
 				7100C08C1CD116C700016649 /* App.swift in Sources */,
