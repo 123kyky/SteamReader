@@ -6,19 +6,22 @@
 //  Copyright © 2016 Kyle Roberts. All rights reserved.
 //
 
-import UIKit
 import CoreData
 import SwiftyJSON
 
 class DataManager: NSObject {
     static let singleton = DataManager()
     
-    // MARK: - Data Management
+    // MARK: - Pruning 
     
-    func overwriteApps(json: JSON) {
+    // TODO: Prune news items older than 10 days, removed apps/details
+    
+    // MARK: - Importing
+    
+    func importApps(json: JSON) {
         var appsRaw: [[NSObject : AnyObject]] = []
         for (_, subJson):(String, JSON) in json["applist", "apps"] {
-            appsRaw.append(["appId" : subJson["appid"].stringValue, "name" : subJson["name"].stringValue])
+            appsRaw.append(App.importDictionaryFromJSON(subJson))
         }
         
         App.MR_importFromArray(appsRaw, inContext: NSManagedObjectContext.MR_defaultContext())
@@ -28,21 +31,32 @@ class DataManager: NSObject {
         
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
-        print("Overwrote \(ids.count) apps in the database.")
+        print("Imported \(ids.count) apps into the database.")
     }
     
-    func overwriteNewsItems(json: JSON, app: App) {
+    func importAppDetails(json: JSON, app: App) {
+        var appsRaw: [[NSObject : AnyObject]] = []
+        for (_, subJson):(String, JSON) in json["appnews", "newsitems"] {
+            appsRaw.append(AppDetails.importDictionaryFromJSON(subJson))
+        }
+        
+        let appsDetails = AppDetails.MR_importFromArray(appsRaw, inContext: NSManagedObjectContext.MR_defaultContext()) as? [AppDetails] ?? []
+        let ids = (appsRaw as NSArray).valueForKeyPath("gid") as! NSArray // TODO: Update me
+        let predicate = NSPredicate(format: "NOT (gid IN %@)", ids) // TODO: Update me
+        AppDetails.MR_deleteAllMatchingPredicate(predicate, inContext: NSManagedObjectContext.MR_defaultContext())
+        for appDetails in appsDetails {
+            appDetails.app = app
+        }
+        
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        
+        print("Imported \(ids.count) news items into the database.")
+    }
+    
+    func importNewsItems(json: JSON, app: App) {
         var newsRaw: [[NSObject : AnyObject]] = []
         for (_, subJson):(String, JSON) in json["appnews", "newsitems"] {
-            newsRaw.append(["gid" : subJson["gid"].stringValue,
-                "title" : subJson["title"].stringValue,
-                "author" : subJson["author"].stringValue,
-                "contents" : subJson["contents"].stringValue,
-                "url" : subJson["url"].stringValue,
-                "isExternalURL" : subJson["is_external_url"].boolValue,
-                "feedLabel" : subJson["feedLabel"].stringValue,
-                "feedName" : subJson["feedName"].stringValue,
-                "date" : NSDate(timeIntervalSince1970: subJson["date"].doubleValue)])
+            newsRaw.append(NewsItem.importDictionaryFromJSON(subJson))
         }
         
         let newsItems = NewsItem.MR_importFromArray(newsRaw, inContext: NSManagedObjectContext.MR_defaultContext()) as? [NewsItem] ?? []
@@ -55,18 +69,6 @@ class DataManager: NSObject {
         
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
-        print("Overwrote \(ids.count) news items in the database.")
-    }
-    
-    // MARK: - Apps
-    
-    func allApps() -> [App] {
-        return App.MR_findAll() as? [App] ?? []
-    }
-    
-    // MARK: - NewsItems
-    
-    func newsItemsForApp(app: App) -> [NewsItem] {
-        return NewsItem.MR_findByAttribute("app", withValue: app) as? [NewsItem] ?? []
+        print("Imported \(ids.count) news items into the database.")
     }
 }

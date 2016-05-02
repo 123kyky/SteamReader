@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     func fetchSteamApps() {
-        NetworkTest.singleton.fetchAllApps()
     }
 
 }

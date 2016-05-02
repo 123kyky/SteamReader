@@ -25,7 +25,6 @@ class AppViewController: UIViewController, AppTableViewDelegate {
     
     let NewsItemSegueIdentifier = "ShowNewsItem"
     func appTableNewsItemSelected(appTable: AppTableView, newsItem: NewsItem) {
-        NetworkTest.singleton.fetchNewsItemsForApp(app)
         performSegueWithIdentifier(NewsItemSegueIdentifier, sender: newsItem)
     }
     
