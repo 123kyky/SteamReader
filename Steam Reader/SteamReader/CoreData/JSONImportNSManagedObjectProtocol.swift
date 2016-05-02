@@ -8,6 +8,11 @@
 
 import SwiftyJSON
 
+enum ImportDictionaryMatchingState {
+    case Matches, Updated, NewObject
+}
+
 protocol JSONImportNSManagedObjectProtocol {
-    static func importDictionaryFromJSON(json: JSON) -> [NSObject: AnyObject]
+    static func importDictionaryFromJSON(json: JSON, app: App?) -> [NSObject: AnyObject]
+    static func importDictionaryMatches(dictionary: [NSObject : AnyObject], app: App?) -> ImportDictionaryMatchingState
 }

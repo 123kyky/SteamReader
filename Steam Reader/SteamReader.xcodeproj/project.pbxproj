@@ -235,8 +235,8 @@
 			children = (
 				712F20641CD782BB00C67C1B /* NetworkInterface.swift */,
 				712F20661CD78AF500C67C1B /* NetworkManager.swift */,
-				712F20621CD7822800C67C1B /* CoreDataInterface.swift */,
 				7100C0A21CD1205900016649 /* DataManager.swift */,
+				712F20621CD7822800C67C1B /* CoreDataInterface.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";

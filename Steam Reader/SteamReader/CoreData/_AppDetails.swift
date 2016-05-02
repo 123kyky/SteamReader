@@ -6,6 +6,7 @@ import CoreData
 
 public enum AppDetailsAttributes: String {
     case about = "about"
+    case appId = "appId"
     case detailedDescription = "detailedDescription"
     case developers = "developers"
     case dlc = "dlc"
@@ -54,6 +55,9 @@ public class _AppDetails: NSManagedObject {
 
     @NSManaged public
     var about: String?
+
+    @NSManaged public
+    var appId: String?
 
     @NSManaged public
     var detailedDescription: String?

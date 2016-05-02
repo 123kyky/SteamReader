@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     func fetchSteamApps() {
+        NetworkManager.singleton.fetchAllApps()
     }
 
 }
