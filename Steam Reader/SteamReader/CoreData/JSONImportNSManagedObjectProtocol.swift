@@ -9,7 +9,7 @@
 import SwiftyJSON
 
 enum ImportDictionaryMatchingState {
-    case Matches, Updated, NewObject
+    case Matches, Updated, NewObject, Invalid
 }
 
 protocol JSONImportNSManagedObjectProtocol {

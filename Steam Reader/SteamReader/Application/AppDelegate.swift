@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import CoreData
 import MagicalRecord
 
 @UIApplicationMain
@@ -39,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func fetchSteamApps() {
         NetworkManager.singleton.fetchAllApps()
+        DataManager.singleton.pruneNewsItems()
     }
 
 }

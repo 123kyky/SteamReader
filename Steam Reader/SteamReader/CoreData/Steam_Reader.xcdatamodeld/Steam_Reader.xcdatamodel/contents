@@ -9,20 +9,20 @@
     <entity name="AppDetails" representedClassName="AppDetails" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="appId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categories" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="currentPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="detailedDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="developers" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="dlc" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="finalPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="genres" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="headerImage" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="initialPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="metacritic" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="metacriticScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="publishers" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="supportsLinux" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="supportsMac" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="supportsWindows" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="App" inverseName="details" inverseEntity="App" syncable="YES"/>
     </entity>
@@ -35,7 +35,7 @@
         </attribute>
         <attribute name="feedLabel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="feedName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isExternalURL" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>

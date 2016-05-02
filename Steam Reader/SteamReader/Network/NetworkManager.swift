@@ -14,18 +14,27 @@ class NetworkManager: NSObject {
     func fetchAllApps() {
         NetworkInterface.singleton.allApps({ (json) in
             DataManager.singleton.importApps(json)
+            self.fetchDetailsForApps(CoreDataInterface.singleton.allApps())
         }) { (error) in
             NSLog("Error fetching all apps: \(error)")
         }
     }
     
-    func fetchDetailsForApp(app: App) {
-        NetworkInterface.singleton.appDetailsForApp(app, success: { (json) in
-            DataManager.singleton.importAppDetails(json, app: app)
+    func fetchDetailsForApps(apps: [App]) {
+        NetworkInterface.singleton.appDetailsForApps(apps, success: { (json) in
+            DataManager.singleton.importAppsDetails(json)
         }) { (error) in
             NSLog("Error fetching all apps: \(error)")
         }
     }
+    
+//    func fetchDetailsForApp(app: App) {
+//        NetworkInterface.singleton.appDetailsForApp(app, success: { (json) in
+//            DataManager.singleton.importAppsDetails(json)
+//        }) { (error) in
+//            NSLog("Error fetching all apps: \(error)")
+//        }
+//    }
     
     func fetchNewsForApp(app: App) {
         NetworkInterface.singleton.newsItemsForApp(app, success: { (json) in

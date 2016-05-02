@@ -5,12 +5,13 @@ import Foundation
 import CoreData
 
 public enum NewsItemAttributes: String {
+    case appId = "appId"
     case author = "author"
     case contents = "contents"
     case date = "date"
     case feedLabel = "feedLabel"
     case feedName = "feedName"
-    case gid = "gid"
+    case gId = "gId"
     case isExternalURL = "isExternalURL"
     case title = "title"
     case url = "url"
@@ -46,6 +47,9 @@ public class _NewsItem: NSManagedObject {
     // MARK: - Properties
 
     @NSManaged public
+    var appId: String?
+
+    @NSManaged public
     var author: String?
 
     @NSManaged public
@@ -61,7 +65,7 @@ public class _NewsItem: NSManagedObject {
     var feedName: String?
 
     @NSManaged public
-    var gid: String?
+    var gId: String?
 
     @NSManaged public
     var isExternalURL: NSNumber?

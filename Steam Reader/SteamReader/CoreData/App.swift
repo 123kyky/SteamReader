@@ -3,6 +3,9 @@ import SwiftyJSON
 
 @objc(App)
 public class App: _App, JSONImportNSManagedObjectProtocol {
+    
+    // MARK: - JSONImportNSManagedObjectProtocol
+    
     class func importDictionaryFromJSON(json: JSON, app: App?) -> [NSObject: AnyObject] {
         return [
             "appId" : json["appid"].stringValue,
@@ -14,13 +17,14 @@ public class App: _App, JSONImportNSManagedObjectProtocol {
         let existingApp: App? = CoreDataInterface.singleton.appForId(dictionary["appId"] as! String)
         if existingApp == nil {
             return .NewObject
-        }
-        
-        if existingApp?.appId == dictionary["appId"] as? String &&
-            existingApp?.name == dictionary["name"] as? String {
+        } else if existingApp!.appId == (dictionary["appId"] as! String) &&
+            existingApp!.name == (dictionary["name"] as! String) {
             return .Matches
-        } else {
+        } else if dictionary["appId"] != nil &&
+            dictionary["name"] != nil {
             return .Updated
+        } else {
+            return .Invalid
         }
     }
 }

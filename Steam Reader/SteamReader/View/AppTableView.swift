@@ -37,7 +37,7 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func stuff() {
-        newsItems = NewsItem.MR_findByAttribute("app", withValue: app) as? [NewsItem] ?? []
+        newsItems = NewsItem.MR_findByAttribute("app", withValue: app, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
         tableView.reloadData()
     }
     

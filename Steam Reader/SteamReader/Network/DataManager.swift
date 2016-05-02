@@ -14,15 +14,28 @@ class DataManager: NSObject {
     
     // MARK: - Pruning 
     
-    // TODO: Prune news items older than 10 days
+    // TODO: Consider pruning unsubscribed news
+    func pruneNewsItems() {
+        var removedCount = 0
+        for newsItem in CoreDataInterface.singleton.allNewsItems() {
+            let days = NSCalendar.currentCalendar().components(.Day, fromDate: newsItem.date!, toDate: NSDate(), options: []).day
+            if days > 30 {
+                removedCount += 1
+                newsItem.MR_deleteEntityInContext(CoreDataInterface.singleton.context)
+            }
+        }
+        CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        
+        print("Deleted \(removedCount) news items in the database.")
+    }
     
     // MARK: - Importing
     
     func importApps(json: JSON) {
         // Build dictionary for import
         var appsRaw: [[NSObject : AnyObject]] = []
-        for (_, subJson):(String, JSON) in json["applist", "apps"] {
-            appsRaw.append(App.importDictionaryFromJSON(subJson, app: nil))
+        for (_, subJSON):(String, JSON) in json["applist", "apps"] {
+            appsRaw.append(App.importDictionaryFromJSON(subJSON, app: nil))
         }
         
         // Handle items that are already cached
@@ -31,7 +44,7 @@ class DataManager: NSObject {
         var appsToUpdate: [[NSObject : AnyObject]] = []
         for dictionary in appsRaw {
             switch App.importDictionaryMatches(dictionary, app: nil) {
-            case .Matches:
+            case .Matches, .Invalid:
                 appsToImport.removeAtIndex(i)
             case .Updated:
                 appsToUpdate.append(dictionary)
@@ -41,49 +54,62 @@ class DataManager: NSObject {
             }
         }
         
+//        appsToImport.append(appsRaw.first!)
+//        appsToUpdate.append(appsRaw.last!)
+        
         // Import
-        App.MR_importFromArray(appsToImport, inContext: NSManagedObjectContext.MR_defaultContext())
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-            
-        // Update
-        let apps = App.MR_importFromArray(appsToUpdate, inContext: NSManagedObjectContext.MR_defaultContext()) as? [App] ?? []
-        let ids = (appsToUpdate as NSArray).valueForKeyPath("appId") as! NSArray
-        let predicate = NSPredicate(format: "NOT (appId IN %@)", ids)
-        App.MR_deleteAllMatchingPredicate(predicate, inContext: NSManagedObjectContext.MR_defaultContext())
-        for app in apps {
-            app.details = CoreDataInterface.singleton.appDetailsForAppId(app.appId!)
-            app.newsItems = NSSet(array: CoreDataInterface.singleton.newsItemsForAppId(app.appId!))
+        if appsToImport.count > 0 {
+            App.MR_importFromArray(appsToImport, inContext: CoreDataInterface.singleton.context)
+            CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         }
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        
+        // Update
+        if appsToUpdate.count > 0 {
+            let apps = App.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [App] ?? []
+            let ids = (appsToUpdate as NSArray).valueForKeyPath("appId") as! NSArray
+            let predicate = NSPredicate(format: "appId IN %@", ids)
+            App.MR_deleteAllMatchingPredicate(predicate, inContext: CoreDataInterface.singleton.context)
+            for app in apps {
+                if let appDetails = CoreDataInterface.singleton.appDetailsForAppId(app.appId!) {
+                    app.details = appDetails
+                }
+                
+                let newsItems = CoreDataInterface.singleton.newsItemsForAppId(app.appId!)
+                if newsItems.count > 0 {
+                    app.newsItems = NSSet(array: newsItems)
+                }
+            }
+            CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        }
         
         // Remove
         var removedCount = 0
-        if App.MR_countOfEntities() != UInt(appsRaw.count) {
+        if App.MR_countOfEntitiesWithContext(CoreDataInterface.singleton.context) != UInt(appsRaw.count) {
             let allIds = (appsRaw as NSArray).valueForKeyPath("appId") as! NSArray
             for app in CoreDataInterface.singleton.allApps() {
                 if !allIds.containsObject(app.appId!) {
                     if app.details != nil {
-                        app.details!.MR_deleteEntity()
+                        app.details!.MR_deleteEntityInContext(CoreDataInterface.singleton.context)
                     }
                     
-                    app.MR_deleteEntity()
-                    
                     removedCount += 1
+                    app.MR_deleteEntityInContext(CoreDataInterface.singleton.context)
                 }
             }
         }
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         
         print("Imported \(appsToImport.count) apps into the database.")
         print("Overwrote \(appsToUpdate.count) apps in the database.")
         print("Deleted \(removedCount) apps in the database.")
     }
     
-    func importAppDetails(json: JSON, app: App) {
+    func importAppsDetails(json: JSON) {
         // Build dictionary for import
         var appsRaw: [[NSObject : AnyObject]] = []
-        for (_, subJson):(String, JSON) in json["appnews", "newsitems"] {
-            appsRaw.append(AppDetails.importDictionaryFromJSON(subJson, app: nil))
+        for (_, subJSON):(String, JSON) in json {
+            let app = CoreDataInterface.singleton.appForId(subJSON.arrayObject!.first as! String)
+            appsRaw.append(AppDetails.importDictionaryFromJSON(subJSON, app: app))
         }
         
         // Handle items that are already cached
@@ -91,8 +117,9 @@ class DataManager: NSObject {
         var appsToImport: [[NSObject : AnyObject]] = appsRaw
         var appsToUpdate: [[NSObject : AnyObject]] = []
         for dictionary in appsRaw {
+            let app = CoreDataInterface.singleton.appForId(dictionary["appId"] as! String)
             switch AppDetails.importDictionaryMatches(dictionary, app: app) {
-            case .Matches:
+            case .Matches, .Invalid:
                 appsToImport.removeAtIndex(i)
             case .Updated:
                 appsToUpdate.append(dictionary)
@@ -103,28 +130,51 @@ class DataManager: NSObject {
         }
         
         // Import
-        AppDetails.MR_importFromArray(appsToImport, inContext: NSManagedObjectContext.MR_defaultContext())
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        if appsToImport.count > 0 {
+            AppDetails.MR_importFromArray(appsToImport, inContext: CoreDataInterface.singleton.context)
+            CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        }
         
         // Update
-        let appsDetails = AppDetails.MR_importFromArray(appsToUpdate, inContext: NSManagedObjectContext.MR_defaultContext()) as? [AppDetails] ?? []
-        let ids = (appsToUpdate as NSArray).valueForKeyPath("appid") as! NSArray // TODO: Update me
-        let predicate = NSPredicate(format: "NOT (appId IN %@)", ids) // TODO: Update me
-        AppDetails.MR_deleteAllMatchingPredicate(predicate, inContext: NSManagedObjectContext.MR_defaultContext())
-        for appDetails in appsDetails {
-            appDetails.app = app
+        if appsToUpdate.count > 0 {
+            let appsDetails = AppDetails.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
+            let ids = (appsToUpdate as NSArray).valueForKeyPath("appId") as! NSArray
+            let predicate = NSPredicate(format: "appId IN %@", ids)
+            AppDetails.MR_deleteAllMatchingPredicate(predicate, inContext: CoreDataInterface.singleton.context)
+            for appDetails in appsDetails {
+                let app = CoreDataInterface.singleton.appForId(appDetails.appId!)
+                appDetails.app = app
+            }
+            CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         }
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
-        print("Imported \(appsToImport.count) news items into the database.")
-        print("Overwrote \(appsToUpdate.count) apps in the database.")
+        // TODO: Remove
+        var removedCount = 0
+//        if App.MR_countOfEntitiesWithContext(CoreDataInterface.singleton.context) != UInt(appsRaw.count) {
+//            let allIds = (appsRaw as NSArray).valueForKeyPath("appId") as! NSArray
+//            for app in CoreDataInterface.singleton.allApps() {
+//                if !allIds.containsObject(app.appId!) {
+//                    if app.details != nil {
+//                        app.details!.MR_deleteEntityInContext(CoreDataInterface.singleton.context)
+//                    }
+//                    
+//                    removedCount += 1
+//                    app.MR_deleteEntityInContext(CoreDataInterface.singleton.context)
+//                }
+//            }
+//        }
+//        CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        
+        print("Imported \(appsToImport.count) app details items into the database.")
+        print("Overwrote \(appsToUpdate.count) app details in the database.")
+        print("Deleted \(removedCount) apps in the database.")
     }
     
     func importNewsItems(json: JSON, app: App) {
         // Build dictionary for import
         var newsRaw: [[NSObject : AnyObject]] = []
-        for (_, subJson):(String, JSON) in json["appnews", "newsitems"] {
-            newsRaw.append(NewsItem.importDictionaryFromJSON(subJson, app: nil))
+        for (_, subJSON):(String, JSON) in json["appnews", "newsitems"] {
+            newsRaw.append(NewsItem.importDictionaryFromJSON(subJSON, app: app))
         }
         
         // Handle items that are already cached
@@ -133,7 +183,7 @@ class DataManager: NSObject {
         var newsToUpdate: [[NSObject : AnyObject]] = []
         for dictionary in newsRaw {
             switch NewsItem.importDictionaryMatches(dictionary, app: app) {
-            case .Matches:
+            case .Matches, .Invalid:
                 newsToImport.removeAtIndex(i)
             case .Updated:
                 newsToUpdate.append(dictionary)
@@ -144,20 +194,24 @@ class DataManager: NSObject {
         }
         
         // Import
-        NewsItem.MR_importFromArray(newsToImport, inContext: NSManagedObjectContext.MR_defaultContext())
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        if newsToImport.count > 0 {
+            NewsItem.MR_importFromArray(newsToImport, inContext: CoreDataInterface.singleton.context)
+            CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        }
         
         // Update
-        let newsItems = NewsItem.MR_importFromArray(newsToUpdate, inContext: NSManagedObjectContext.MR_defaultContext()) as? [NewsItem] ?? []
-        let ids = (newsToUpdate as NSArray).valueForKeyPath("gid") as! NSArray
-        let predicate = NSPredicate(format: "NOT (gid IN %@)", ids)
-        NewsItem.MR_deleteAllMatchingPredicate(predicate, inContext: NSManagedObjectContext.MR_defaultContext())
-        for newsItem in newsItems {
-            newsItem.app = app
+        if newsToUpdate.count > 0 {
+            let newsItems = NewsItem.MR_importFromArray(newsToUpdate, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
+            let ids = (newsToUpdate as NSArray).valueForKeyPath("gId") as! NSArray
+            let predicate = NSPredicate(format: "gId IN %@", ids)
+            NewsItem.MR_deleteAllMatchingPredicate(predicate, inContext: CoreDataInterface.singleton.context)
+            for newsItem in newsItems {
+                newsItem.app = app
+            }
+            CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         }
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
         print("Imported \(newsToImport.count) news items into the database.")
-        print("Overwrote \(newsToUpdate.count) apps in the database.")
+        print("Overwrote \(newsToUpdate.count) news items in the database.")
     }
 }

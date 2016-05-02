@@ -7,20 +7,20 @@ import CoreData
 public enum AppDetailsAttributes: String {
     case about = "about"
     case appId = "appId"
+    case categories = "categories"
+    case currentPrice = "currentPrice"
     case detailedDescription = "detailedDescription"
     case developers = "developers"
-    case dlc = "dlc"
-    case finalPrice = "finalPrice"
     case genres = "genres"
     case headerImage = "headerImage"
-    case initialPrice = "initialPrice"
     case metacritic = "metacritic"
     case metacriticScore = "metacriticScore"
+    case price = "price"
+    case publishers = "publishers"
     case releaseDate = "releaseDate"
     case supportsLinux = "supportsLinux"
     case supportsMac = "supportsMac"
     case supportsWindows = "supportsWindows"
-    case type = "type"
     case website = "website"
 }
 
@@ -60,16 +60,16 @@ public class _AppDetails: NSManagedObject {
     var appId: String?
 
     @NSManaged public
+    var categories: AnyObject?
+
+    @NSManaged public
+    var currentPrice: NSNumber?
+
+    @NSManaged public
     var detailedDescription: String?
 
     @NSManaged public
     var developers: AnyObject?
-
-    @NSManaged public
-    var dlc: AnyObject?
-
-    @NSManaged public
-    var finalPrice: NSNumber?
 
     @NSManaged public
     var genres: AnyObject?
@@ -78,13 +78,16 @@ public class _AppDetails: NSManagedObject {
     var headerImage: String?
 
     @NSManaged public
-    var initialPrice: NSNumber?
-
-    @NSManaged public
     var metacritic: String?
 
     @NSManaged public
     var metacriticScore: NSNumber?
+
+    @NSManaged public
+    var price: NSNumber?
+
+    @NSManaged public
+    var publishers: AnyObject?
 
     @NSManaged public
     var releaseDate: NSDate?
@@ -97,9 +100,6 @@ public class _AppDetails: NSManagedObject {
 
     @NSManaged public
     var supportsWindows: NSNumber?
-
-    @NSManaged public
-    var type: String?
 
     @NSManaged public
     var website: String?
