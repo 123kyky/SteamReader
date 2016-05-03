@@ -54,6 +54,7 @@ class DataManager: NSObject {
             }
         }
         
+        // TODO: Test this
 //        appsToImport.append(appsRaw.first!)
 //        appsToUpdate.append(appsRaw.last!)
         
@@ -74,9 +75,11 @@ class DataManager: NSObject {
                     app.details = appDetails
                 }
                 
-                let newsItems = CoreDataInterface.singleton.newsItemsForAppId(app.appId!)
-                if newsItems.count > 0 {
-                    app.newsItems = NSSet(array: newsItems)
+                if app.appId != nil {
+                    let newsItems = CoreDataInterface.singleton.newsItemsForAppId(app.appId!) ?? []
+                    if newsItems.count > 0 {
+                        app.newsItems = NSSet(array: newsItems)
+                    }
                 }
             }
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
@@ -104,13 +107,60 @@ class DataManager: NSObject {
         print("Deleted \(removedCount) apps in the database.")
     }
     
+    func importFeatured(json: JSON) {
+        // Build dictionary for import
+        var specialsRaw: JSON?
+        var comingSoonRaw: JSON?
+        var newReleasesRaw: JSON?
+        var topSellersRaw: JSON?
+        for (_, subJSON):(String, JSON) in json {
+            let name = subJSON["name"].stringValue
+            if name == "Specials" {
+                specialsRaw = subJSON["items"]
+            } else if name == "Coming Soon" {
+                comingSoonRaw = subJSON["items"]
+            } else if name == "Top Sellers" {
+                newReleasesRaw = subJSON["items"]
+            } else if name == "New Releases" {
+                topSellersRaw = subJSON["items"]
+            }
+        }
+        
+        setAppFeaturedValues(specialsRaw , key: "special")
+        setAppFeaturedValues(comingSoonRaw, key: "comingSoon")
+        setAppFeaturedValues(newReleasesRaw, key: "newRelease")
+        setAppFeaturedValues(topSellersRaw, key: "topSeller")
+    }
+    
+    private func setAppFeaturedValues(json: JSON?, key: String) {
+        if json == nil { return }
+        
+        var ids: [String : NSNumber] = [:]
+        for (_, subJSON):(String, JSON) in json! {
+            ids[subJSON["id"].stringValue] = subJSON["type"].numberValue
+        }
+        
+        for app in CoreDataInterface.singleton.appsForIds(Array(ids.keys)) {
+            app.setValue(true, forKey: key)
+            app.type = ids[app.appId!]
+        }
+        
+        for app in CoreDataInterface.singleton.appsNotInIds(Array(ids.keys)) {
+            app.setValue(false, forKey: key)
+        }
+        
+        CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+    }
+    
     func importAppsDetails(json: JSON) {
         // Build dictionary for import
         var appsRaw: [[NSObject : AnyObject]] = []
         for (_, subJSON):(String, JSON) in json {
             let app = CoreDataInterface.singleton.appForId(subJSON.arrayObject!.first as! String)
             appsRaw.append(AppDetails.importDictionaryFromJSON(subJSON, app: app))
+            app?.type = subJSON["type"].numberValue
         }
+        CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         
         // Handle items that are already cached
         var i = 0
@@ -148,26 +198,8 @@ class DataManager: NSObject {
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         }
         
-        // TODO: Remove
-        var removedCount = 0
-//        if App.MR_countOfEntitiesWithContext(CoreDataInterface.singleton.context) != UInt(appsRaw.count) {
-//            let allIds = (appsRaw as NSArray).valueForKeyPath("appId") as! NSArray
-//            for app in CoreDataInterface.singleton.allApps() {
-//                if !allIds.containsObject(app.appId!) {
-//                    if app.details != nil {
-//                        app.details!.MR_deleteEntityInContext(CoreDataInterface.singleton.context)
-//                    }
-//                    
-//                    removedCount += 1
-//                    app.MR_deleteEntityInContext(CoreDataInterface.singleton.context)
-//                }
-//            }
-//        }
-//        CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
-        
         print("Imported \(appsToImport.count) app details items into the database.")
         print("Overwrote \(appsToUpdate.count) app details in the database.")
-        print("Deleted \(removedCount) apps in the database.")
     }
     
     func importNewsItems(json: JSON, app: App) {

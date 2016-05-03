@@ -2,7 +2,13 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="App" representedClassName="App" syncable="YES">
         <attribute name="appId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comingSoon" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newRelease" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="special" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="subscribed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topSeller" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppDetails" inverseName="app" inverseEntity="AppDetails" syncable="YES"/>
         <relationship name="newsItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NewsItem" inverseName="app" inverseEntity="NewsItem" syncable="YES"/>
     </entity>
@@ -43,7 +49,7 @@
         <userInfo/>
     </entity>
     <elements>
-        <element name="App" positionX="270" positionY="207" width="128" height="105"/>
+        <element name="App" positionX="270" positionY="207" width="128" height="195"/>
         <element name="AppDetails" positionX="261" positionY="198" width="128" height="315"/>
         <element name="NewsItem" positionX="261" positionY="189" width="128" height="210"/>
     </elements>

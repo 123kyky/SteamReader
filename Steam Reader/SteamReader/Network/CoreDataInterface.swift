@@ -20,6 +20,14 @@ class CoreDataInterface: NSObject {
         return App.MR_findAllInContext(CoreDataInterface.singleton.context) as? [App] ?? []
     }
     
+    func appsForIds(ids: [String]) -> [App] {
+        return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.appId in %@", ids)) as? [App] ?? []
+    }
+    
+    func appsNotInIds(ids: [String]) -> [App] {
+        return App.MR_findAllWithPredicate(NSPredicate(format: "NOT (SELF.appId in %@)", ids)) as? [App] ?? []
+    }
+    
     func appForId(id: String) -> App? {
         return (App.MR_findByAttribute("appId", withValue: id, inContext: CoreDataInterface.singleton.context) as? [App] ?? []).first
     }

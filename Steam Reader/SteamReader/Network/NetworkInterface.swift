@@ -36,6 +36,13 @@ class NetworkInterface: NSObject {
         }
     }
     
+    func featured(success: (JSON) -> Void, failure: (NSError?) -> Void) {
+        Alamofire.request(.GET, "http://store.steampowered.com/api/featuredcategories/", parameters: ["trailer" : false])
+            .responseJSON { response in
+                self.defaultResponse(response, success, failure)
+        }
+    }
+    
     func allApps(success: (JSON) -> Void, failure: (NSError?) -> Void) {
         Alamofire.request(.GET, "https://api.steampowered.com/ISteamApps/GetAppList/v0002/", parameters: ["key" : key])
             .responseJSON { response in
@@ -43,7 +50,7 @@ class NetworkInterface: NSObject {
         }
     }
     
-    var jsons: [JSON] = []
+    private var jsons: [JSON] = []
     func appDetailsForApps(apps: [App], success: (JSON) -> Void, failure: (NSError?) -> Void) {
         appDetailsForApp(apps.first!, success: { (json) in
             self.jsons.append(json)

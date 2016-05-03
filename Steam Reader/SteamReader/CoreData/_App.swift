@@ -6,7 +6,13 @@ import CoreData
 
 public enum AppAttributes: String {
     case appId = "appId"
+    case comingSoon = "comingSoon"
     case name = "name"
+    case newRelease = "newRelease"
+    case special = "special"
+    case subscribed = "subscribed"
+    case topSeller = "topSeller"
+    case type = "type"
 }
 
 public enum AppRelationships: String {
@@ -43,7 +49,25 @@ public class _App: NSManagedObject {
     var appId: String?
 
     @NSManaged public
+    var comingSoon: NSNumber?
+
+    @NSManaged public
     var name: String?
+
+    @NSManaged public
+    var newRelease: NSNumber?
+
+    @NSManaged public
+    var special: NSNumber?
+
+    @NSManaged public
+    var subscribed: String?
+
+    @NSManaged public
+    var topSeller: NSNumber?
+
+    @NSManaged public
+    var type: NSNumber?
 
     // MARK: - Relationships
 
