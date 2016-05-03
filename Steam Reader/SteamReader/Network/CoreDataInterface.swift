@@ -38,7 +38,7 @@ class CoreDataInterface: NSObject {
         return (App.MR_findByAttribute("appId", withValue: id, inContext: CoreDataInterface.singleton.context) as? [App] ?? []).first
     }
     
-    func featuredAppsForKey(key: String) -> [App] {
+    func featuredGamesForKey(key: String) -> [App] {
         return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.%@ == %@", key, NSNumber(bool: true))) as? [App] ?? []
     }
     

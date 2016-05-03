@@ -17,7 +17,7 @@ class NewsItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        appHeaderView.configure(newsItem.app)
+        appHeaderView.configureWithApp(newsItem.app)
         newsItemView.newsItem = newsItem
     }
 

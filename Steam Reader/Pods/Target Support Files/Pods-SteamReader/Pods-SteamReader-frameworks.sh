@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-SteamReader/Alamofire.framework"
+  install_framework "Pods-SteamReader/AlamofireImage.framework"
   install_framework "Pods-SteamReader/Async.framework"
   install_framework "Pods-SteamReader/MagicalRecord.framework"
   install_framework "Pods-SteamReader/SnapKit.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-SteamReader/Alamofire.framework"
+  install_framework "Pods-SteamReader/AlamofireImage.framework"
   install_framework "Pods-SteamReader/Async.framework"
   install_framework "Pods-SteamReader/MagicalRecord.framework"
   install_framework "Pods-SteamReader/SnapKit.framework"

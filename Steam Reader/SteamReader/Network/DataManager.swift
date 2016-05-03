@@ -8,6 +8,7 @@
 
 import CoreData
 import SwiftyJSON
+import Async
 
 class DataManager: NSObject {
     static let singleton = DataManager()
@@ -30,6 +31,9 @@ class DataManager: NSObject {
     }
     
     // MARK: - Importing
+    
+    static let AppListUpdatedNotificationName = "AppListUpdatedNotificationName"
+    static let FeaturedAppsUpdatedNotificationName = "FeaturedAppsUpdatedNotificationName"
     
     func importApps(json: JSON) {
         // Build dictionary for import
@@ -116,6 +120,10 @@ class DataManager: NSObject {
         print("Imported \(appsToImport.count) apps into the database.")
         print("Overwrote \(appsToUpdate.count) apps in the database.")
         print("Deleted \(removedCount) apps in the database.")
+        
+        Async.main {
+            NSNotificationCenter.defaultCenter().postNotificationName(DataManager.AppListUpdatedNotificationName, object: nil)
+        }
     }
     
     func importFeatured(json: JSON) {
@@ -155,6 +163,10 @@ class DataManager: NSObject {
         print("Imported \(imported) featured apps into the database.")
         print("Featured \(featured) existing apps in the database.")
         print("Unfeatured \(unfeatured) existing apps in the database.")
+        
+        Async.main {
+            NSNotificationCenter.defaultCenter().postNotificationName(DataManager.FeaturedAppsUpdatedNotificationName, object: nil)
+        }
     }
     
     private func setAppFeaturedValues(json: JSON?, key: String) -> (Int, Int, Int) {
@@ -200,9 +212,11 @@ class DataManager: NSObject {
         // Build dictionary for import
         var appsRaw: [[NSObject : AnyObject]] = []
         for (_, subJSON):(String, JSON) in json {
-            let app = CoreDataInterface.singleton.appForId(subJSON.arrayObject!.first as! String)
-            appsRaw.append(AppDetails.importDictionaryFromJSON(subJSON, app: app))
-            app?.type = subJSON["type"].numberValue
+            let dictionary = subJSON.dictionaryValue
+            let id = Array(dictionary.keys).first
+            let app = CoreDataInterface.singleton.appForId(id!)
+            appsRaw.append(AppDetails.importDictionaryFromJSON(subJSON[id!], app: app))
+            app?.type = subJSON[id!, "data", "type"].numberValue
         }
         CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         
@@ -225,19 +239,25 @@ class DataManager: NSObject {
         
         // Import
         if appsToImport.count > 0 {
-            AppDetails.MR_importFromArray(appsToImport, inContext: CoreDataInterface.singleton.context)
+            let appsDetails = AppDetails.MR_importFromArray(appsToImport, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+            for appDetails in appsDetails {
+                let app = CoreDataInterface.singleton.appForId(appDetails.appId!)
+                app?.details = appDetails
+            }
         }
         
         // Update
         if appsToUpdate.count > 0 {
             let ids = (appsToUpdate as NSArray).valueForKeyPath("appId") as! NSArray
             let predicate = NSPredicate(format: "appId IN %@", ids)
-            let appsDetails = AppDetails.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
             AppDetails.MR_deleteAllMatchingPredicate(predicate, inContext: CoreDataInterface.singleton.context)
+            let appsDetails = AppDetails.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
             for appDetails in appsDetails {
-                let app = CoreDataInterface.singleton.appForId(appDetails.appId!)
-                appDetails.app = app
+                if appDetails.appId != nil {
+                    let app = CoreDataInterface.singleton.appForId(appDetails.appId!)
+                    appDetails.app = app
+                }
             }
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
         }

@@ -52,15 +52,12 @@ class NetworkInterface: NSObject {
     
     private var jsons: [JSON] = []
     func appDetailsForApps(apps: [App], success: (JSON) -> Void, failure: (NSError?) -> Void) {
+        if apps.count == 0 { return }
+        
         appDetailsForApp(apps.first!, success: { (json) in
             self.jsons.append(json)
             if apps.count == 1 {
-                var combinedJSON: JSON = self.jsons.first!
-                self.jsons.removeFirst()
-                for json in self.jsons {
-                    combinedJSON = JSON(combinedJSON.arrayObject! + json.arrayObject!)
-                }
-                success(combinedJSON)
+                success(JSON(self.jsons))
                 self.jsons = []
             } else {
                 var remainingApps = apps
@@ -73,7 +70,7 @@ class NetworkInterface: NSObject {
     }
     
     private func appDetailsForApp(app: App, success: (JSON) -> Void, failure: (NSError?) -> Void) {
-        Alamofire.request(.GET, "http://store.steampowered.com/api/appdetails/", parameters: ["appids" : app.appId!, "filters" : ["type" : "game"]])
+        Alamofire.request(.GET, "http://store.steampowered.com/api/appdetails/", parameters: ["appids" : app.appId!])
             .responseJSON { response in
                 self.defaultResponse(response, success, failure)
         }

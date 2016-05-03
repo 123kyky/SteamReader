@@ -13,15 +13,24 @@ protocol AppsTableViewDelegate {
 }
 
 class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
     var delegate: AppsTableViewDelegate?
     
-    var sections: [Section]!
+    var sections: [Section]! {
+        didSet {
+            if !filtering {
+                tableView.reloadData()
+            }
+        }
+    }
     private var filteredContents: [App]!
     var searchContents: [App]! {
         didSet {
             filteredContents = searchContents
+            if filtering {
+                tableView.reloadData()
+            }
         }
     }
     
@@ -73,7 +82,7 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
         
         let app = filtering ? filteredContents[indexPath.row] : sections[indexPath.section].apps[indexPath.row]
-        cell!.appView!.configure(app)
+        cell!.appView!.configureWithApp(app)
         
         return cell!
     }

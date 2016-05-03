@@ -50,7 +50,7 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
             cell = AppHeaderCell(style: .Default, reuseIdentifier: CellIdentifier)
         }
         
-        cell!.appView!.configure(app)
+        cell!.appView!.configureWithApp(app)
         
         return cell!
     }

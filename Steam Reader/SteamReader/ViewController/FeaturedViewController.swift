@@ -9,25 +9,59 @@
 import UIKit
 
 class FeaturedViewController: UIViewController, AppsTableViewDelegate, SearchViewDelegate {
+    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var searchView: SearchView!
     @IBOutlet weak var appsTableView: AppsTableView!
     @IBOutlet weak var searchViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        let special = Section(title: "Specials", apps: CoreDataInterface.singleton.featuredAppsForKey("special"))
-        let newRelease = Section(title: "New Releases", apps: CoreDataInterface.singleton.featuredAppsForKey("newRelease"))
-        let topSellers = Section(title: "Top Sellers", apps: CoreDataInterface.singleton.featuredAppsForKey("topSeller"))
-        let comingSoon = Section(title: "Coming Soon", apps: CoreDataInterface.singleton.featuredAppsForKey("comingSoon"))
-        appsTableView.sections = [special, newRelease, topSellers, comingSoon]
-        appsTableView.searchContents = CoreDataInterface.singleton.allApps()
+        
+        reloadData()
         appsTableView.delegate = self
         searchView.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeaturedViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeaturedViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        refreshButton.layer.cornerRadius = 15
+        refreshButton.alpha = 0
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeaturedViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeaturedViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeaturedViewController.featuredAppsUpdated(_:)), name:DataManager.FeaturedAppsUpdatedNotificationName, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func featuredAppsUpdated(notification: NSNotification) {
+        UIView.animateWithDuration(0.3) { 
+            self.refreshButton.alpha = 0.75
+        }
+    }
+    
+    @IBAction func refreshButtonTapped(sender: AnyObject) {
+        reloadData()
+        
+        UIView.animateWithDuration(0.3) {
+            self.refreshButton.alpha = 0
+        }
+    }
+    
+    func reloadData() {
+        let special = Section(title: "Specials", apps: CoreDataInterface.singleton.featuredGamesForKey("special"))
+        let newReleases = Section(title: "New Releases", apps: CoreDataInterface.singleton.featuredGamesForKey("newRelease"))
+        let topSellers = Section(title: "Top Sellers", apps: CoreDataInterface.singleton.featuredGamesForKey("topSeller"))
+        let comingSoon = Section(title: "Coming Soon", apps: CoreDataInterface.singleton.featuredGamesForKey("comingSoon"))
+        appsTableView.sections = [special, newReleases, topSellers, comingSoon]
+        appsTableView.searchContents = CoreDataInterface.singleton.allApps()
+        
+        NetworkManager.singleton.fetchDetailsForApps(special.apps + newReleases.apps + topSellers.apps + comingSoon.apps)
     }
 
     // MARK: - AppsTableView & SearchView Delegate

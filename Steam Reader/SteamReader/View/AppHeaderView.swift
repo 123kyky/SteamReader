@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class AppHeaderView: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    var app: App?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -33,10 +36,31 @@ class AppHeaderView: UIView {
         }
     }
     
-    func configure(app: App?) {
+    func configureWithApp(app: App?) {
+        self.app = app
         nameLabel.text = app?.name
-        // TODO: Set image
+        
+        app!.addObserver(self, forKeyPath: "details", options: NSKeyValueObservingOptions.New, context: nil)
+        if app!.details != nil {
+            configureWithDetails(app!.details!)
+        }
     }
+    
+    func configureWithDetails(details: AppDetails) {
+        imageView.af_setImageWithURL(NSURL(string: details.headerImage!)!, placeholderImage: nil, filter: nil, imageTransition: .CrossDissolve(0.3), completion: { response in
+            self.imageView.image = response.result.value
+        })
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "details" && app!.details != nil {
+            configureWithDetails(app!.details!)
+        }
+    }
+    
+//    func dealloc() {
+//        app?.removeObserver(self, forKeyPath: "details")
+//    }
 
 }
 

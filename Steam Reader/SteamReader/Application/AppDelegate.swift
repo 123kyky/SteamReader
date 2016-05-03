@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setUpData()
         
@@ -40,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     func fetchSteamApps() {
+        NetworkManager.singleton.fetchFeatured()
         NetworkManager.singleton.fetchAllApps()
         DataManager.singleton.pruneNewsItems()
     }
