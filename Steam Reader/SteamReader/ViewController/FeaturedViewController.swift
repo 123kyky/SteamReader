@@ -17,7 +17,12 @@ class FeaturedViewController: UIViewController, AppsTableViewDelegate, SearchVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        appsTableView.apps = CoreDataInterface.singleton.allApps()
+        let special = Section(title: "Specials", apps: CoreDataInterface.singleton.featuredAppsForKey("special"))
+        let newRelease = Section(title: "New Releases", apps: CoreDataInterface.singleton.featuredAppsForKey("newRelease"))
+        let topSellers = Section(title: "Top Sellers", apps: CoreDataInterface.singleton.featuredAppsForKey("topSeller"))
+        let comingSoon = Section(title: "Coming Soon", apps: CoreDataInterface.singleton.featuredAppsForKey("comingSoon"))
+        appsTableView.sections = [special, newRelease, topSellers, comingSoon]
+        appsTableView.searchContents = CoreDataInterface.singleton.allApps()
         appsTableView.delegate = self
         searchView.delegate = self
         
@@ -38,14 +43,16 @@ class FeaturedViewController: UIViewController, AppsTableViewDelegate, SearchVie
     }
     
     func searchViewCollapsed(searchView: SearchView) {
-    
+        appsTableView.filtering = false
     }
     
     func searchViewTextUpdated(searchView: SearchView, searchText: String) {
+        appsTableView.filtering = searchText != ""
         appsTableView.filter(searchText)
     }
     
     func searchViewSearched(searchView: SearchView, searchText: String) {
+        appsTableView.filtering = searchText != ""
         appsTableView.filter(searchText)
     }
     

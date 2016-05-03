@@ -15,14 +15,17 @@ protocol AppsTableViewDelegate {
 class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     
-    var filteredApps: [App]!
-    var apps: [App]! {
+    var delegate: AppsTableViewDelegate?
+    
+    var sections: [Section]!
+    private var filteredContents: [App]!
+    var searchContents: [App]! {
         didSet {
-            filteredApps = apps
+            filteredContents = searchContents
         }
     }
     
-    var delegate: AppsTableViewDelegate?
+    var filtering: Bool = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,9 +41,9 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func filter(searchText: String) {
         if searchText == "" {
-            filteredApps = apps
+            filteredContents = searchContents
         } else {
-            filteredApps = apps.filter { (app) -> Bool in
+            filteredContents = searchContents.filter { (app) -> Bool in
                 return app.name!.lowercaseString.containsString(searchText.lowercaseString)
             }
         }
@@ -50,12 +53,16 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - UITableView Delegate & DataSource
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return filtering ? nil : sections[section].title
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return filtering ? 1 : sections.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredApps.count
+        return filtering ? filteredContents.count : sections[section].apps.count
     }
     
     let CellIdentifier = "AppCell"
@@ -65,14 +72,24 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
             cell = AppHeaderCell(style: .Default, reuseIdentifier: CellIdentifier)
         }
         
-        let app = filteredApps[indexPath.row]
+        let app = filtering ? filteredContents[indexPath.row] : sections[indexPath.section].apps[indexPath.row]
         cell!.appView!.configure(app)
         
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        delegate?.appsTableAppSelected(self, app: filteredApps[indexPath.row])
+        delegate?.appsTableAppSelected(self, app: filteredContents[indexPath.row])
     }
     
+}
+
+class Section: NSObject {
+    var title: String
+    var apps: [App]
+    
+    init(title: String, apps: [App]) {
+        self.title = title
+        self.apps = apps
+    }
 }

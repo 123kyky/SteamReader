@@ -61,7 +61,7 @@ public class _App: NSManagedObject {
     var special: NSNumber?
 
     @NSManaged public
-    var subscribed: String?
+    var subscribed: NSNumber?
 
     @NSManaged public
     var topSeller: NSNumber?

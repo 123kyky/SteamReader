@@ -6,7 +6,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newRelease" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="special" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="subscribed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subscribed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="topSeller" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppDetails" inverseName="app" inverseEntity="AppDetails" syncable="YES"/>

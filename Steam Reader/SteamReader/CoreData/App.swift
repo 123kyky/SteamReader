@@ -10,6 +10,12 @@ public class App: _App, JSONImportNSManagedObjectProtocol {
         return [
             "appId" : json["appid"].stringValue,
             "name" : json["name"].stringValue,
+            "type" : json["type"].number ?? NSNumber(int: 99),
+            "special" : json["special"] != nil,
+            "comingSoon" : json["comingSoon"] != nil,
+            "topSeller" : json["topSeller"] != nil,
+            "newRelease" : json["newRelease"] != nil,
+            "subscribed" : false
         ]
     }
     
@@ -18,10 +24,21 @@ public class App: _App, JSONImportNSManagedObjectProtocol {
         if existingApp == nil {
             return .NewObject
         } else if existingApp!.appId == (dictionary["appId"] as! String) &&
-            existingApp!.name == (dictionary["name"] as! String) {
+            existingApp!.name == (dictionary["name"] as! String) &&
+            existingApp!.type == (dictionary["type"] as! NSNumber) &&
+            existingApp!.special == (dictionary["special"] as! Bool) &&
+            existingApp!.comingSoon == (dictionary["comingSoon"] as! Bool) &&
+            existingApp!.topSeller == (dictionary["topSeller"] as! Bool) &&
+            existingApp!.newRelease == (dictionary["newRelease"] as! Bool) &&
+            existingApp!.subscribed == (dictionary["subscribed"] as! Bool) {
             return .Matches
         } else if dictionary["appId"] != nil &&
-            dictionary["name"] != nil {
+            dictionary["name"] != nil &&
+            dictionary["special"] != nil  &&
+            dictionary["comingSoon"] != nil  &&
+            dictionary["topSeller"] != nil  &&
+            dictionary["newRelease"] != nil  &&
+            dictionary["subscribed"] != nil  {
             return .Updated
         } else {
             return .Invalid

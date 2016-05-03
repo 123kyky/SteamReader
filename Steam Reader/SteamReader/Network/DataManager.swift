@@ -66,16 +66,27 @@ class DataManager: NSObject {
         
         // Update
         if appsToUpdate.count > 0 {
-            let apps = App.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [App] ?? []
             let ids = (appsToUpdate as NSArray).valueForKeyPath("appId") as! NSArray
             let predicate = NSPredicate(format: "appId IN %@", ids)
+            let existingApps = App.MR_findAllWithPredicate(predicate) as? [App] ?? []
             App.MR_deleteAllMatchingPredicate(predicate, inContext: CoreDataInterface.singleton.context)
-            for app in apps {
-                if let appDetails = CoreDataInterface.singleton.appDetailsForAppId(app.appId!) {
-                    app.details = appDetails
-                }
-                
+            let importedApps = App.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [App] ?? []
+            for app in importedApps {
                 if app.appId != nil {
+                    if let i = existingApps.indexOf({ $0.appId == app.appId }) {
+                        let appBefore = existingApps[i]
+                        app.type = appBefore.type
+                        app.special = appBefore.special
+                        app.comingSoon = appBefore.comingSoon
+                        app.topSeller = appBefore.topSeller
+                        app.newRelease = appBefore.newRelease
+                        app.subscribed = appBefore.subscribed
+                    }
+                    
+                    if let appDetails = CoreDataInterface.singleton.appDetailsForAppId(app.appId!) {
+                        app.details = appDetails
+                    }
+                    
                     let newsItems = CoreDataInterface.singleton.newsItemsForAppId(app.appId!) ?? []
                     if newsItems.count > 0 {
                         app.newsItems = NSSet(array: newsItems)
@@ -119,37 +130,70 @@ class DataManager: NSObject {
                 specialsRaw = subJSON["items"]
             } else if name == "Coming Soon" {
                 comingSoonRaw = subJSON["items"]
-            } else if name == "Top Sellers" {
-                newReleasesRaw = subJSON["items"]
             } else if name == "New Releases" {
+                newReleasesRaw = subJSON["items"]
+            } else if name == "Top Sellers" {
                 topSellersRaw = subJSON["items"]
             }
         }
         
-        setAppFeaturedValues(specialsRaw , key: "special")
-        setAppFeaturedValues(comingSoonRaw, key: "comingSoon")
-        setAppFeaturedValues(newReleasesRaw, key: "newRelease")
-        setAppFeaturedValues(topSellersRaw, key: "topSeller")
+        var counts: [(Int, Int, Int)] = []
+        counts.append(setAppFeaturedValues(specialsRaw , key: "special"))
+        counts.append(setAppFeaturedValues(comingSoonRaw, key: "comingSoon"))
+        counts.append(setAppFeaturedValues(newReleasesRaw, key: "newRelease"))
+        counts.append(setAppFeaturedValues(topSellersRaw, key: "topSeller"))
+        
+        var imported = 0
+        var featured = 0
+        var unfeatured = 0
+        for count: (imported: Int, featured: Int, unfeatured: Int) in counts {
+            imported += count.imported
+            featured += count.featured
+            unfeatured += count.unfeatured
+        }
+        
+        print("Imported \(imported) featured apps into the database.")
+        print("Featured \(featured) existing apps in the database.")
+        print("Unfeatured \(unfeatured) existing apps in the database.")
     }
     
-    private func setAppFeaturedValues(json: JSON?, key: String) {
-        if json == nil { return }
+    private func setAppFeaturedValues(json: JSON?, key: String) -> (Int, Int, Int) {
+        if json == nil { return (0, 0, 0) }
         
-        var ids: [String : NSNumber] = [:]
+        var featured = 0
+        var ids: [String] = []
+        var appsToImport: [[NSObject : AnyObject]] = []
         for (_, subJSON):(String, JSON) in json! {
-            ids[subJSON["id"].stringValue] = subJSON["type"].numberValue
+            ids.append(subJSON["id"].stringValue)
+            if let app = CoreDataInterface.singleton.appForId(ids.last!) {
+                featured += 1
+                app.setValue(true, forKey: key)
+                app.type = subJSON["type"].numberValue
+            } else {
+                var importJSON = subJSON
+                importJSON["appid"] = JSON(ids.last!)
+                importJSON[key] = true
+                appsToImport.append(App.importDictionaryFromJSON(importJSON, app: nil))
+            }
         }
-        
-        for app in CoreDataInterface.singleton.appsForIds(Array(ids.keys)) {
-            app.setValue(true, forKey: key)
-            app.type = ids[app.appId!]
-        }
-        
-        for app in CoreDataInterface.singleton.appsNotInIds(Array(ids.keys)) {
-            app.setValue(false, forKey: key)
-        }
-        
         CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        
+        // Import
+        if appsToImport.count > 0 {
+            App.MR_importFromArray(appsToImport, inContext: CoreDataInterface.singleton.context)
+            CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        }
+        
+        var unfeatured = 0
+        for app in CoreDataInterface.singleton.appsNotInIds(ids) {
+            if app.valueForKey(key) as? Bool == true {
+                unfeatured += 1
+                app.setValue(false, forKey: key)
+            }
+        }
+        CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+        
+        return (appsToImport.count, featured, unfeatured)
     }
     
     func importAppsDetails(json: JSON) {
@@ -187,9 +231,9 @@ class DataManager: NSObject {
         
         // Update
         if appsToUpdate.count > 0 {
-            let appsDetails = AppDetails.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
             let ids = (appsToUpdate as NSArray).valueForKeyPath("appId") as! NSArray
             let predicate = NSPredicate(format: "appId IN %@", ids)
+            let appsDetails = AppDetails.MR_importFromArray(appsToUpdate, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
             AppDetails.MR_deleteAllMatchingPredicate(predicate, inContext: CoreDataInterface.singleton.context)
             for appDetails in appsDetails {
                 let app = CoreDataInterface.singleton.appForId(appDetails.appId!)
@@ -233,9 +277,9 @@ class DataManager: NSObject {
         
         // Update
         if newsToUpdate.count > 0 {
-            let newsItems = NewsItem.MR_importFromArray(newsToUpdate, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
             let ids = (newsToUpdate as NSArray).valueForKeyPath("gId") as! NSArray
             let predicate = NSPredicate(format: "gId IN %@", ids)
+            let newsItems = NewsItem.MR_importFromArray(newsToUpdate, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
             NewsItem.MR_deleteAllMatchingPredicate(predicate, inContext: CoreDataInterface.singleton.context)
             for newsItem in newsItems {
                 newsItem.app = app
