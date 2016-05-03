@@ -7,27 +7,9 @@
     </dependencies>
     <scenes>
         <!--Featured View Controller-->
-        <scene sceneID="HZm-Tt-Tku">
-            <objects>
-                <viewController id="IE7-21-iZA" customClass="FeaturedViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NOJ-VD-NAP"/>
-                        <viewControllerLayoutGuide type="bottom" id="tRj-u4-Xqf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9fp-K2-8QQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ovv-Er-rbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="111" y="-832"/>
-        </scene>
-        <!--Search View Controller-->
         <scene sceneID="z7n-fU-ArU">
             <objects>
-                <viewController id="io5-hd-1b0" customClass="SearchViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="io5-hd-1b0" customClass="FeaturedViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LoI-Kc-hp7"/>
                         <viewControllerLayoutGuide type="bottom" id="X6v-X7-JPi"/>
@@ -68,6 +50,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="0ci-3y-HGy"/>
                     <connections>
                         <outlet property="appsTableView" destination="tCD-Zc-KpD" id="3f0-HQ-saR"/>
                         <outlet property="searchView" destination="XVK-KV-c0j" id="YuO-zc-krG"/>
@@ -79,100 +62,6 @@
             </objects>
             <point key="canvasLocation" x="111" y="-67"/>
         </scene>
-        <!--Home-->
-        <scene sceneID="ia6-5n-O2s">
-            <objects>
-                <tableViewController title="Home" id="2Nn-Pj-I6c" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="feg-rd-601">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection headerTitle="" id="rAh-Nq-eSe">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FdU-l4-2YI">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FdU-l4-2YI" id="Hwa-e0-jxG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZd-6I-ARn">
-                                                    <rect key="frame" x="266" y="11" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="CZd-6I-ARn" firstAttribute="centerY" secondItem="Hwa-e0-jxG" secondAttribute="centerY" id="4XR-kO-nL4"/>
-                                                <constraint firstItem="CZd-6I-ARn" firstAttribute="centerX" secondItem="Hwa-e0-jxG" secondAttribute="centerX" id="y7A-8h-9zK"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="IE7-21-iZA" kind="show" id="seN-gS-kot"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SmM-EM-APS">
-                                        <rect key="frame" x="0.0" y="108" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SmM-EM-APS" id="FxE-Pm-qLa">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eB-vx-R2a">
-                                                    <rect key="frame" x="273" y="11" width="54" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="8eB-vx-R2a" firstAttribute="centerX" secondItem="FxE-Pm-qLa" secondAttribute="centerX" id="3Lj-0L-h6w"/>
-                                                <constraint firstItem="8eB-vx-R2a" firstAttribute="centerY" secondItem="FxE-Pm-qLa" secondAttribute="centerY" id="7ds-Or-6uX"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="io5-hd-1b0" kind="show" id="ba0-g8-IqD"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uIt-JT-zbB">
-                                        <rect key="frame" x="0.0" y="152" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uIt-JT-zbB" id="LhS-7J-w8j">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscriptions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnm-U6-HQ0">
-                                                    <rect key="frame" x="248" y="11" width="105" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Lnm-U6-HQ0" firstAttribute="centerY" secondItem="LhS-7J-w8j" secondAttribute="centerY" id="9by-b5-Rht"/>
-                                                <constraint firstItem="Lnm-U6-HQ0" firstAttribute="centerX" secondItem="LhS-7J-w8j" secondAttribute="centerX" id="Lzx-U6-RaH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="7Pd-pq-Vxc" kind="show" id="TTP-qr-TeL"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="2Nn-Pj-I6c" id="hqK-cM-hbs"/>
-                            <outlet property="delegate" destination="2Nn-Pj-I6c" id="Eef-ux-SbO"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Home" id="E49-51-Wfr"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7YO-Sf-deD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-694" y="-67"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yZ1-JT-zJC">
             <objects>
@@ -182,30 +71,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="2Nn-Pj-I6c" kind="relationship" relationship="rootViewController" id="2UG-cg-AHh"/>
+                        <segue destination="io5-hd-1b0" kind="relationship" relationship="rootViewController" id="zfg-3E-QB5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqQ-bG-gZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1481" y="-67"/>
-        </scene>
-        <!--Subscriptions View Controller-->
-        <scene sceneID="xt6-W1-HYv">
-            <objects>
-                <viewController id="7Pd-pq-Vxc" customClass="SubscriptionsViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pKh-Z2-vfL"/>
-                        <viewControllerLayoutGuide type="bottom" id="2gA-WM-kIe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f9L-h3-wYy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qm4-ne-P0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="111" y="711"/>
+            <point key="canvasLocation" x="-681" y="-67"/>
         </scene>
         <!--App View Controller-->
         <scene sceneID="hcq-Om-dXI">

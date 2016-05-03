@@ -40,11 +40,10 @@
 		7100C0971CD116C700016649 /* AppTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0791CD116C700016649 /* AppTableView.swift */; };
 		7100C0981CD116C700016649 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07A1CD116C700016649 /* SearchView.swift */; };
 		7100C0991CD116C700016649 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07C1CD116C700016649 /* AppViewController.swift */; };
-		7100C09A1CD116C700016649 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07D1CD116C700016649 /* SearchViewController.swift */; };
+		7100C09A1CD116C700016649 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07D1CD116C700016649 /* FeaturedViewController.swift */; };
 		7100C09B1CD116C700016649 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */; };
 		7100C0A01CD1178400016649 /* Steam_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0811CD116C700016649 /* Steam_ReaderTests.swift */; };
 		7100C0A11CD1178900016649 /* Steam_ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0841CD116C700016649 /* Steam_ReaderUITests.swift */; };
-		7100C0A71CD1325F00016649 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A61CD1325F00016649 /* FeaturedViewController.swift */; };
 		7112D3711CD3978D005AF0FD /* NewsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7112D3701CD3978D005AF0FD /* NewsItemView.xib */; };
 		7112D3731CD397D9005AF0FD /* AppHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7112D3721CD397D9005AF0FD /* AppHeaderView.xib */; };
 		7112D3751CD39813005AF0FD /* AppHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112D3741CD39813005AF0FD /* AppHeaderView.swift */; };
@@ -102,14 +101,13 @@
 		7100C0791CD116C700016649 /* AppTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableView.swift; sourceTree = "<group>"; };
 		7100C07A1CD116C700016649 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7100C07C1CD116C700016649 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
-		7100C07D1CD116C700016649 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7100C07D1CD116C700016649 /* FeaturedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
 		7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		7100C0801CD116C700016649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7100C0811CD116C700016649 /* Steam_ReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steam_ReaderTests.swift; sourceTree = "<group>"; };
 		7100C0831CD116C700016649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7100C0841CD116C700016649 /* Steam_ReaderUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steam_ReaderUITests.swift; sourceTree = "<group>"; };
 		7100C0A21CD1205900016649 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		7100C0A61CD1325F00016649 /* FeaturedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
 		7112D3701CD3978D005AF0FD /* NewsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsItemView.xib; sourceTree = "<group>"; };
 		7112D3721CD397D9005AF0FD /* AppHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppHeaderView.xib; sourceTree = "<group>"; };
 		7112D3741CD39813005AF0FD /* AppHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHeaderView.swift; sourceTree = "<group>"; };
@@ -257,10 +255,9 @@
 		7100C07B1CD116C700016649 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7100C07D1CD116C700016649 /* SearchViewController.swift */,
+				7100C07D1CD116C700016649 /* FeaturedViewController.swift */,
 				7100C07C1CD116C700016649 /* AppViewController.swift */,
 				71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */,
-				7100C0A61CD1325F00016649 /* FeaturedViewController.swift */,
 				7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */,
 			);
 			path = ViewController;
@@ -538,11 +535,10 @@
 				7100C0891CD116C700016649 /* _App.swift in Sources */,
 				712F20611CD780C000C67C1B /* JSONImportNSManagedObjectProtocol.swift in Sources */,
 				7112D37D1CD3A8B1005AF0FD /* NewsItemHeaderView.swift in Sources */,
-				7100C09A1CD116C700016649 /* SearchViewController.swift in Sources */,
+				7100C09A1CD116C700016649 /* FeaturedViewController.swift in Sources */,
 				7100C08F1CD116C700016649 /* Steam_Reader.xcdatamodeld in Sources */,
 				7100C08C1CD116C700016649 /* App.swift in Sources */,
 				7100C09B1CD116C700016649 /* SubscriptionsViewController.swift in Sources */,
-				7100C0A71CD1325F00016649 /* FeaturedViewController.swift in Sources */,
 				7100C0971CD116C700016649 /* AppTableView.swift in Sources */,
 				7100C08A1CD116C700016649 /* _AppDetails.swift in Sources */,
 				7100C0961CD116C700016649 /* AppsTableView.swift in Sources */,

@@ -22,7 +22,7 @@ public class NewsItem: _NewsItem, JSONImportNSManagedObjectProtocol {
     }
     
     class func importDictionaryMatches(dictionary: [NSObject : AnyObject], app: App?) -> ImportDictionaryMatchingState {
-        let newsItem: NewsItem? = CoreDataInterface.singleton.newsItemForId(dictionary["gid"] as! String)
+        let newsItem: NewsItem? = CoreDataInterface.singleton.newsItemForId(dictionary["gId"] as! String)
         if newsItem == nil {
             return .NewObject
         } else if newsItem!.app?.appId == (dictionary["appId"] as! String) &&

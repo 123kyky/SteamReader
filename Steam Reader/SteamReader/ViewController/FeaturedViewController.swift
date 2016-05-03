@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, AppsTableViewDelegate, SearchViewDelegate {
+class FeaturedViewController: UIViewController, AppsTableViewDelegate, SearchViewDelegate {
     @IBOutlet weak var searchView: SearchView!
     @IBOutlet weak var appsTableView: AppsTableView!
     @IBOutlet weak var searchViewBottomConstraint: NSLayoutConstraint!
@@ -21,8 +21,8 @@ class SearchViewController: UIViewController, AppsTableViewDelegate, SearchViewD
         appsTableView.delegate = self
         searchView.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeaturedViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeaturedViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
     }
 
     // MARK: - AppsTableView & SearchView Delegate

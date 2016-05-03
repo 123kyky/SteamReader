@@ -16,8 +16,14 @@ class CoreDataInterface: NSObject {
     
     // MARK: - Apps
     
+    let gameType = 0
+    
     func allApps() -> [App] {
         return App.MR_findAllInContext(CoreDataInterface.singleton.context) as? [App] ?? []
+    }
+    
+    func allGames() -> [App] {
+        return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.type == %@", gameType)) as? [App] ?? []
     }
     
     func appsForIds(ids: [String]) -> [App] {
