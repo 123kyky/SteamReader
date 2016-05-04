@@ -19,11 +19,15 @@ class CoreDataInterface: NSObject {
     let gameType = 0
     
     func allApps() -> [App] {
-        return App.MR_findAllInContext(CoreDataInterface.singleton.context) as? [App] ?? []
+        return App.MR_findAllInContext(context) as? [App] ?? []
     }
     
     func allGames() -> [App] {
         return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.type == %@", gameType)) as? [App] ?? []
+    }
+    
+    func hasData() -> Bool {
+        return App.MR_countOfEntitiesWithContext(context) > 0
     }
     
     func appsForIds(ids: [String]) -> [App] {
@@ -35,7 +39,7 @@ class CoreDataInterface: NSObject {
     }
     
     func appForId(id: String) -> App? {
-        return (App.MR_findByAttribute("appId", withValue: id, inContext: CoreDataInterface.singleton.context) as? [App] ?? []).first
+        return (App.MR_findByAttribute("appId", withValue: id, inContext: context) as? [App] ?? []).first
     }
     
     func featuredGamesForKey(key: String) -> [App] {
@@ -45,32 +49,32 @@ class CoreDataInterface: NSObject {
     // MARK: - AppDetails
     
     func allAppDetails() -> [AppDetails] {
-        return AppDetails.MR_findAllInContext(CoreDataInterface.singleton.context) as? [AppDetails] ?? []
+        return AppDetails.MR_findAllInContext(context) as? [AppDetails] ?? []
     }
     
     func appDetailsForApp(app: App) -> AppDetails? {
-        return (AppDetails.MR_findByAttribute("app", withValue: app, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []).first
+        return (AppDetails.MR_findByAttribute("app", withValue: app, inContext: context) as? [AppDetails] ?? []).first
     }
     
     func appDetailsForAppId(appId: String) -> AppDetails? {
-        return (AppDetails.MR_findByAttribute("appId", withValue: appId, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []).first
+        return (AppDetails.MR_findByAttribute("appId", withValue: appId, inContext: context) as? [AppDetails] ?? []).first
     }
     
     // MARK: - NewsItems
     
     func allNewsItems() -> [NewsItem] {
-        return NewsItem.MR_findAllInContext(CoreDataInterface.singleton.context) as? [NewsItem] ?? []
+        return NewsItem.MR_findAllInContext(context) as? [NewsItem] ?? []
     }
     
     func newsItemsForApp(app: App) -> [NewsItem] {
-        return NewsItem.MR_findByAttribute("app", withValue: app, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
+        return NewsItem.MR_findByAttribute("app", withValue: app, inContext: context) as? [NewsItem] ?? []
     }
     
     func newsItemsForAppId(appId: String) -> [NewsItem] {
-        return NewsItem.MR_findByAttribute("appId", withValue: appId, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
+        return NewsItem.MR_findByAttribute("appId", withValue: appId, inContext: context) as? [NewsItem] ?? []
     }
     
     func newsItemForId(gId: String) -> NewsItem? {
-        return (NewsItem.MR_findByAttribute("gId", withValue: gId, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []).first
+        return (NewsItem.MR_findByAttribute("gId", withValue: gId, inContext: context) as? [NewsItem] ?? []).first
     }
 }

@@ -83,12 +83,14 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         let app = filtering ? filteredContents[indexPath.row] : sections[indexPath.section].apps[indexPath.row]
         cell!.appView!.configureWithApp(app)
+        cell!.appView!.imageView.image = nil
         
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        delegate?.appsTableAppSelected(self, app: filteredContents[indexPath.row])
+        let app = filtering ? filteredContents[indexPath.row] : sections[indexPath.section].apps[indexPath.row]
+        delegate?.appsTableAppSelected(self, app: app)
     }
     
 }

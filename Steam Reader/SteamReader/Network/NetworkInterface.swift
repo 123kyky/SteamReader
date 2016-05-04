@@ -51,7 +51,7 @@ class NetworkInterface: NSObject {
     }
     
     private var jsons: [JSON] = []
-    func appDetailsForApps(apps: [App], success: (JSON) -> Void, failure: (NSError?) -> Void) {
+    func appsDetailsForApps(apps: [App], success: (JSON) -> Void, failure: (NSError?) -> Void) {
         if apps.count == 0 { return }
         
         appDetailsForApp(apps.first!, success: { (json) in
@@ -61,15 +61,15 @@ class NetworkInterface: NSObject {
                 self.jsons = []
             } else {
                 var remainingApps = apps
-                remainingApps.removeAtIndex(0)
-                self.appDetailsForApps(remainingApps, success: success, failure: failure)
+                remainingApps.removeFirst()
+                self.appsDetailsForApps(remainingApps, success: success, failure: failure)
             }
         }, failure: { (error) in
             failure(error)
         })
     }
     
-    private func appDetailsForApp(app: App, success: (JSON) -> Void, failure: (NSError?) -> Void) {
+    func appDetailsForApp(app: App, success: (JSON) -> Void, failure: (NSError?) -> Void) {
         Alamofire.request(.GET, "http://store.steampowered.com/api/appdetails/", parameters: ["appids" : app.appId!])
             .responseJSON { response in
                 self.defaultResponse(response, success, failure)

@@ -16,7 +16,15 @@ protocol AppTableViewDelegate {
 class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     
-    var app: App!
+    var app: App! {
+        didSet {
+            app.addObserver(self, forKeyPath: "newsItems", options: NSKeyValueObservingOptions.New, context: nil)
+            NetworkManager.singleton.fetchNewsForApp(app)
+            if oldValue != nil {
+                oldValue.removeObserver(self, forKeyPath: "newsItems")
+            }
+        }
+    }
     var newsItems: [NewsItem]! = []
     
     var delegate: AppTableViewDelegate?
@@ -30,15 +38,15 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
             make.edges.equalTo(self)
         }
         
-        performSelector(#selector(AppTableView.stuff), withObject: nil, afterDelay: 3)
-        
         tableView.registerClass(AppHeaderCell.self, forCellReuseIdentifier: HeaderIdentifier)
         tableView.registerClass(NewsItemHeaderCell.self, forCellReuseIdentifier: CellIdentifier)
     }
     
-    func stuff() {
-        newsItems = NewsItem.MR_findByAttribute("app", withValue: app, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
-        tableView.reloadData()
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "newsItems" && app!.newsItems.count > 0 {
+            newsItems = app!.newsItems.allObjects as! [NewsItem] // TODO: Sort
+            tableView.reloadData()
+        }
     }
     
     // MARK: - UITableView Delegate & DataSource

@@ -31,7 +31,7 @@ public class AppDetails: _AppDetails, JSONImportNSManagedObjectProtocol {
             "genres" : genres,
             "categories" : categories,
             "metacritic" : json["metacritic", "score"].stringValue,
-            "metacriticScore" : json["metacritic", "url"].stringValue,
+            "metacriticScore" : json["metacritic", "url"].numberValue,
             "supportsWindows" : json["platforms", "windows"].boolValue,
             "supportsMac" : json["platforms", "mac"].boolValue,
             "supportsLinux" : json["platforms", "linux"].boolValue
@@ -55,7 +55,7 @@ public class AppDetails: _AppDetails, JSONImportNSManagedObjectProtocol {
             appDetails!.genres as! [String] == dictionary["genres"] as! [String] &&
             appDetails!.categories as! [String] == dictionary["categories"] as! [String] &&
             appDetails!.metacritic == (dictionary["metacritic"] as! String) &&
-            appDetails!.metacriticScore == dictionary["metacriticScore"] as! String &&
+            appDetails!.metacriticScore == (dictionary["metacriticScore"] as! NSNumber) &&
             appDetails!.supportsWindows == dictionary["supportsWindows"] as! Bool &&
             appDetails!.supportsMac == dictionary["supportsMac"] as! Bool &&
             appDetails!.supportsLinux == dictionary["supportsLinux"] as! Bool {

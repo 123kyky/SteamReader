@@ -68,7 +68,6 @@ class FeaturedViewController: UIViewController, AppsTableViewDelegate, SearchVie
     
     let AppTableSegueIdentifier = "ShowAppTable"
     func appsTableAppSelected(appsTable: AppsTableView, app: App) {
-        NetworkManager.singleton.fetchNewsForApp(app) // TODO: Move to a fetch in a manager class
         performSegueWithIdentifier(AppTableSegueIdentifier, sender: app)
     }
     

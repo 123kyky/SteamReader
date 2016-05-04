@@ -30,18 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func setUpData() {
         setUpCoreData()
-        fetchSteamApps()
+        if CoreDataInterface.singleton.hasData() {
+            NetworkManager.singleton.fetchFeatured()
+            NetworkManager.singleton.fetchAllApps()
+            DataManager.singleton.pruneNewsItems()
+        } else {
+            NetworkManager.singleton.fetchAllAppsAndFeatured()
+        }
     }
     
     func setUpCoreData() {
         MagicalRecord.setupCoreDataStack()
         MagicalRecord.setLoggingLevel(.Off)
-    }
-    
-    func fetchSteamApps() {
-        NetworkManager.singleton.fetchFeatured()
-        NetworkManager.singleton.fetchAllApps()
-        DataManager.singleton.pruneNewsItems()
     }
 
 }
