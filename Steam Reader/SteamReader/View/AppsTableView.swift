@@ -85,6 +85,10 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         cell!.appView!.configureWithApp(app)
         cell!.appView!.imageView.image = nil
         
+        if filtering && app.details == nil {
+            NetworkManager.singleton.fetchDetailsForApps([app])
+        }
+        
         return cell!
     }
     

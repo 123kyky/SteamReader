@@ -44,9 +44,13 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "newsItems" && app!.newsItems.count > 0 {
-            newsItems = app!.newsItems.allObjects as! [NewsItem] // TODO: Sort
+            newsItems = app!.newsItems.allObjects as! [NewsItem]
             tableView.reloadData()
         }
+    }
+    
+    deinit {
+        app?.removeObserver(self, forKeyPath: "newsItems")
     }
     
     // MARK: - UITableView Delegate & DataSource

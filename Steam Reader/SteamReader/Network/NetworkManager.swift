@@ -77,4 +77,5 @@ class NetworkManager: NSObject {
             NSLog("Error fetching news items for app: \(error)")
         }
     }
+    
 }

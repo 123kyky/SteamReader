@@ -13,7 +13,7 @@ import Async
 class DataManager: NSObject {
     static let singleton = DataManager()
     
-    // MARK: - Pruning 
+    // MARK: - Pruning
     
     // TODO: Consider pruning unsubscribed news
     func pruneNewsItems() {

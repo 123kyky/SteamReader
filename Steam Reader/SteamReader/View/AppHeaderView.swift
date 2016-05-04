@@ -58,9 +58,9 @@ class AppHeaderView: UIView {
         }
     }
     
-//    func dealloc() {
-//        app?.removeObserver(self, forKeyPath: "details")
-//    }
+    deinit {
+        app?.removeObserver(self, forKeyPath: "details")
+    }
 
 }
 
