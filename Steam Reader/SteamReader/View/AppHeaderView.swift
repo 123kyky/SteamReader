@@ -14,8 +14,14 @@ class AppHeaderView: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var releaseLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     var app: App?
+    
+    var gradientLayer = CAGradientLayer()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,6 +41,15 @@ class AppHeaderView: UIView {
         view.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+        
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
+        
+        gradientLayer.frame = self.imageView.bounds
+        gradientLayer.colors = [self.view.backgroundColor!.CGColor as CGColorRef, UIColor.clearColor().CGColor as CGColorRef]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        imageView.layer.addSublayer(gradientLayer)
     }
     
     func configureWithApp(app: App?) {
@@ -48,8 +63,20 @@ class AppHeaderView: UIView {
     }
     
     func configureWithDetails(details: AppDetails) {
+        let currencyFormatter = CurrencyFormatter()
+        
+        let score = details.metacriticScore == 0 ? "--" : details.metacriticScore!.stringValue
+        
+        // TODO: About label is HTML
+        // TODO: About label tap should take to website
+        // TODO: Image disappears when scrolling
+        aboutLabel.text = details.about
+        priceLabel.text = currencyFormatter.stringFromSteamPrice(details.currentPrice!)
+        releaseLabel.text = details.releaseDate!
+        scoreLabel.text = score + "/100"
         imageView.af_setImageWithURL(NSURL(string: details.headerImage!)!, placeholderImage: nil, filter: nil, imageTransition: .CrossDissolve(0.3), completion: { response in
             self.imageView.image = response.result.value
+            self.gradientLayer.frame = self.imageView.bounds
         })
     }
     

@@ -22,7 +22,7 @@ public class AppDetails: _AppDetails, JSONImportNSManagedObjectProtocol {
             "headerImage" : json["header_image"].stringValue,
             "about" : json["about_the_game"].stringValue,
             "detailedDescription" : json["detailed_description"].stringValue,
-            "releaseDate" : NSDate(timeIntervalSince1970: json["release_date", "date"].doubleValue),
+            "releaseDate" : json["release_date", "date"].stringValue,
             "website" : json["website"].stringValue,
             "price" : json["price_overview", "initial"].doubleValue,
             "currentPrice" : json["price_overview", "final"].doubleValue,
@@ -30,8 +30,8 @@ public class AppDetails: _AppDetails, JSONImportNSManagedObjectProtocol {
             "publishers" : json["publishers"].arrayObject ?? [],
             "genres" : genres,
             "categories" : categories,
-            "metacritic" : json["metacritic", "score"].stringValue,
-            "metacriticScore" : json["metacritic", "url"].numberValue,
+            "metacritic" : json["metacritic", "url"].stringValue,
+            "metacriticScore" : json["metacritic", "score"].numberValue,
             "supportsWindows" : json["platforms", "windows"].boolValue,
             "supportsMac" : json["platforms", "mac"].boolValue,
             "supportsLinux" : json["platforms", "linux"].boolValue
@@ -47,7 +47,7 @@ public class AppDetails: _AppDetails, JSONImportNSManagedObjectProtocol {
             appDetails!.about! == dictionary["about"] as! String &&
             appDetails!.detailedDescription! == dictionary["detailedDescription"] as! String &&
             appDetails!.website! == dictionary["website"] as! String &&
-            appDetails!.releaseDate?.compare((dictionary["releaseDate"] as? NSDate)!) == .OrderedSame &&
+            appDetails!.releaseDate == dictionary["releaseDate"] as? String &&
             appDetails!.price == dictionary["price"] as! Double &&
             appDetails!.currentPrice == dictionary["currentPrice"] as! Double &&
             appDetails!.developers as! [String] == dictionary["developers"] as! [String] &&

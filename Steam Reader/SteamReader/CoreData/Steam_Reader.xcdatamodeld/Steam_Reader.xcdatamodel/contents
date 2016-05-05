@@ -8,7 +8,7 @@
         <attribute name="special" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="subscribed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="topSeller" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppDetails" inverseName="app" inverseEntity="AppDetails" syncable="YES"/>
         <relationship name="newsItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NewsItem" inverseName="app" inverseEntity="NewsItem" syncable="YES"/>
     </entity>
@@ -22,10 +22,10 @@
         <attribute name="genres" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="headerImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="metacritic" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="metacriticScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="metacriticScore" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="publishers" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="supportsLinux" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="supportsMac" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="supportsWindows" optional="YES" attributeType="Boolean" syncable="YES"/>

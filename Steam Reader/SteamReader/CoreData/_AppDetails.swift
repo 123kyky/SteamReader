@@ -90,7 +90,7 @@ public class _AppDetails: NSManagedObject {
     var publishers: AnyObject?
 
     @NSManaged public
-    var releaseDate: NSDate?
+    var releaseDate: String?
 
     @NSManaged public
     var supportsLinux: NSNumber?
