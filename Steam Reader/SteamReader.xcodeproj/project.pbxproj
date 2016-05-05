@@ -56,8 +56,6 @@
 		712F20671CD78AF500C67C1B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F20661CD78AF500C67C1B /* NetworkManager.swift */; };
 		712F20681CD78C3B00C67C1B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A21CD1205900016649 /* DataManager.swift */; };
 		71EDD50B1CD2800F00D21A9E /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */; };
-		DC5F5DC7F3D787D0490A992A /* Pods_SteamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */; };
-		F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,8 +117,6 @@
 		712F20641CD782BB00C67C1B /* NetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterface.swift; sourceTree = "<group>"; };
 		712F20661CD78AF500C67C1B /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
-		97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steam_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6B2778F33A4A6D10053742C /* Pods-SteamReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader.debug.xcconfig"; sourceTree = "<group>"; };
 		EF35916CC1F668D0CF3D0910 /* Pods-SteamReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,8 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A36B4062785A673F46ACE5 /* Pods_Steam_Reader.framework in Frameworks */,
-				DC5F5DC7F3D787D0490A992A /* Pods_SteamReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,8 +287,6 @@
 		F6C959628194AC41FFF548E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DBDF0E893BA19A9FADC166DD /* Pods_Steam_Reader.framework */,
-				97D045A10732D95C5CDC5399 /* Pods_SteamReader.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
