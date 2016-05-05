@@ -15,8 +15,8 @@ public class NewsItem: _NewsItem, JSONImportNSManagedObjectProtocol {
             "contents" : json["contents"].stringValue,
             "url" : json["url"].stringValue,
             "isExternalURL" : json["is_external_url"].boolValue,
-            "feedLabel" : json["feedLabel"].stringValue,
-            "feedName" : json["feedName"].stringValue,
+            "feedLabel" : json["feedlabel"].stringValue,
+            "feedName" : json["feedname"].stringValue,
             "date" : NSDate(timeIntervalSince1970: json["date"].doubleValue)
         ]
     }

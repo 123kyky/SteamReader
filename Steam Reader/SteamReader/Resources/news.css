@@ -1,4 +1,14 @@
-img {
+body {
+    color: white;
+    background-color: #184252;
+    font-family: "Arial", Arial, sans-serif;
+}
+
+a {
+    color: #65BFF3;
+}
+
+img, video {
     max-width: 100%;
     height: auto;
 }

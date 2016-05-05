@@ -10,8 +10,10 @@ import UIKit
 
 class NewsItemHeaderView: UIView {
     @IBOutlet var view: UIView!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var feedLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,9 +37,15 @@ class NewsItemHeaderView: UIView {
     }
     
     func configure(newsItem: NewsItem?) {
-        titleLabel.text = newsItem?.title
-        previewLabel.text = newsItem?.contents
-        // TODO: Set image
+        if newsItem == nil { return }
+        
+        let dateFormatter = DateFormatter()
+        
+        titleLabel.text = newsItem!.title
+        feedLabel.text = newsItem!.feedLabel
+        authorLabel.text = newsItem!.author
+        dateLabel.text = dateFormatter.stringFromDate(newsItem!.date!)
+        previewLabel.text = newsItem!.contents
     }
     
 }
