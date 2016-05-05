@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Async
 
 class AppHeaderView: UIView {
     @IBOutlet var view: UIView!
@@ -54,7 +55,9 @@ class AppHeaderView: UIView {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "details" && app!.details != nil {
-            configureWithDetails(app!.details!)
+            Async.main {
+                self.configureWithDetails(self.app!.details!)
+            }
         }
     }
     

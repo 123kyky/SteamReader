@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Async
 
 protocol AppTableViewDelegate {
     func appTableNewsItemSelected(appTable: AppTableView, newsItem: NewsItem)
@@ -20,6 +21,7 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         didSet {
             app.addObserver(self, forKeyPath: "newsItems", options: NSKeyValueObservingOptions.New, context: nil)
             NetworkManager.singleton.fetchNewsForApp(app)
+            if app.newsItems.count > 0 { newsItems = app.newsItems.allObjects as! [NewsItem] }
             if oldValue != nil {
                 oldValue.removeObserver(self, forKeyPath: "newsItems")
             }
@@ -44,8 +46,10 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "newsItems" && app!.newsItems.count > 0 {
-            newsItems = app!.newsItems.allObjects as! [NewsItem]
-            tableView.reloadData()
+            Async.main {
+                self.newsItems = self.app!.newsItems.allObjects as! [NewsItem]
+                self.tableView.reloadData()
+            }
         }
     }
     

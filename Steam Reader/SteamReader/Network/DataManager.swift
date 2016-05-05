@@ -221,8 +221,7 @@ class DataManager: NSObject {
             let appsDetails = AppDetails.MR_importFromArray(appsToImport, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
             for appDetails in appsDetails {
-                let app = CoreDataInterface.singleton.appForId(appDetails.appId!)
-                app?.details = appDetails
+                app.details = appDetails
             }
         }
         
@@ -232,8 +231,10 @@ class DataManager: NSObject {
             let predicate = NSPredicate(format: "appId IN %@", ids)
             let appsDetails = AppDetails.MR_findAllWithPredicate(predicate) as? [AppDetails] ?? []
             for appDetails in appsDetails {
-                if let i = appsToUpdate.indexOf({ ($0["appId"] as! String) == appDetails.app!.appId }) {
-                    updateObjectWithDictionary(appDetails, dictionary: appsToUpdate[i])
+                for dictionary in appsToUpdate {
+                    if (dictionary["appId"] as! String) == app.appId! {
+                        updateObjectWithDictionary(appDetails, dictionary: dictionary)
+                    }
                 }
             }
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
@@ -276,8 +277,9 @@ class DataManager: NSObject {
             let appsDetails = AppDetails.MR_importFromArray(appsToImport, inContext: CoreDataInterface.singleton.context) as? [AppDetails] ?? []
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
             for appDetails in appsDetails {
-                let app = CoreDataInterface.singleton.appForId(appDetails.appId!)
-                app?.details = appDetails
+                if let app = CoreDataInterface.singleton.appForId(appDetails.appId!) {
+                    app.details = appDetails
+                }
             }
         }
         
@@ -287,8 +289,10 @@ class DataManager: NSObject {
             let predicate = NSPredicate(format: "appId IN %@", ids)
             let appsDetails = AppDetails.MR_findAllWithPredicate(predicate) as? [AppDetails] ?? []
             for appDetails in appsDetails {
-                if let i = appsToUpdate.indexOf({ ($0["appId"] as! String) == appDetails.app!.appId }) {
-                    updateObjectWithDictionary(appDetails, dictionary: appsToUpdate[i])
+                for dictionary in appsToUpdate {
+                    if (dictionary["appId"] as! String) == appDetails.app!.appId {
+                        updateObjectWithDictionary(appDetails, dictionary: dictionary)
+                    }
                 }
             }
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
@@ -323,8 +327,11 @@ class DataManager: NSObject {
         
         // Import
         if newsToImport.count > 0 {
-            NewsItem.MR_importFromArray(newsToImport, inContext: CoreDataInterface.singleton.context)
+            let newsItems = NewsItem.MR_importFromArray(newsToImport, inContext: CoreDataInterface.singleton.context) as? [NewsItem] ?? []
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
+            for newsItem in newsItems {
+                newsItem.app = app
+            }
         }
         
         // Update
@@ -333,8 +340,11 @@ class DataManager: NSObject {
             let predicate = NSPredicate(format: "gId IN %@", ids)
             let newsItems = NewsItem.MR_findAllWithPredicate(predicate) as? [NewsItem] ?? []
             for newsItem in newsItems {
-                if let i = newsToUpdate.indexOf({ ($0["appId"] as! String) == newsItem.app!.appId }) {
-                    updateObjectWithDictionary(newsItem, dictionary: newsToUpdate[i])
+                for dictionary in newsToUpdate {
+                    if (dictionary["appId"] as! String) == app.appId {
+                        updateObjectWithDictionary(newsItem, dictionary: dictionary)
+                        newsItem.app = app
+                    }
                 }
             }
             CoreDataInterface.singleton.context.MR_saveToPersistentStoreAndWait()
