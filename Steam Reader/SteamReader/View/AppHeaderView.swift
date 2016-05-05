@@ -65,12 +65,24 @@ class AppHeaderView: UIView {
     func configureWithDetails(details: AppDetails) {
         let currencyFormatter = CurrencyFormatter()
         
-        let score = details.metacriticScore == 0 ? "--" : details.metacriticScore!.stringValue
-        
-        // TODO: About label is HTML
         // TODO: About label tap should take to website
         // TODO: Image disappears when scrolling
-        aboutLabel.text = details.about
+        
+        let score = details.metacriticScore == 0 ? "--" : details.metacriticScore!.stringValue
+        
+        var htmlAttributes: NSAttributedString? {
+            guard
+                let data = details.about!.dataUsingEncoding(NSUTF8StringEncoding)
+                else { return nil }
+            do {
+                return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute:NSUTF8StringEncoding], documentAttributes: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+                return  nil
+            }
+        }
+        
+        aboutLabel.text = htmlAttributes?.string ?? ""
         priceLabel.text = currencyFormatter.stringFromSteamPrice(details.currentPrice!)
         releaseLabel.text = details.releaseDate!
         scoreLabel.text = score + "/100"

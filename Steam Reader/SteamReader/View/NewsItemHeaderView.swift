@@ -41,11 +41,24 @@ class NewsItemHeaderView: UIView {
         
         let dateFormatter = DateFormatter()
         
+        // TODO: Move somewhere else
+        var htmlAttributes: NSAttributedString? {
+            guard
+                let data = newsItem!.contents!.dataUsingEncoding(NSUTF8StringEncoding)
+                else { return nil }
+            do {
+                return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute:NSUTF8StringEncoding], documentAttributes: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+                return  nil
+            }
+        }
+        
         titleLabel.text = newsItem!.title
         feedLabel.text = newsItem!.feedLabel
         authorLabel.text = newsItem!.author
         dateLabel.text = dateFormatter.stringFromDate(newsItem!.date!)
-        previewLabel.text = newsItem!.contents
+        previewLabel.text = htmlAttributes?.string ?? ""
     }
     
 }
