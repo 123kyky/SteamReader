@@ -55,6 +55,7 @@
 		712F20651CD782BB00C67C1B /* NetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F20641CD782BB00C67C1B /* NetworkInterface.swift */; };
 		712F20671CD78AF500C67C1B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F20661CD78AF500C67C1B /* NetworkManager.swift */; };
 		712F20681CD78C3B00C67C1B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A21CD1205900016649 /* DataManager.swift */; };
+		71E1584B1CDB942E00DC8BE6 /* news.css in Resources */ = {isa = PBXBuildFile; fileRef = 71E1584A1CDB942E00DC8BE6 /* news.css */; };
 		71EDD50B1CD2800F00D21A9E /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		712F20621CD7822800C67C1B /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
 		712F20641CD782BB00C67C1B /* NetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterface.swift; sourceTree = "<group>"; };
 		712F20661CD78AF500C67C1B /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		71E1584A1CDB942E00DC8BE6 /* news.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = news.css; sourceTree = "<group>"; };
 		71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
 		E6B2778F33A4A6D10053742C /* Pods-SteamReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader.debug.xcconfig"; sourceTree = "<group>"; };
 		EF35916CC1F668D0CF3D0910 /* Pods-SteamReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReader/Pods-SteamReader.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		7100C05E1CD116C700016649 /* SteamReader */ = {
 			isa = PBXGroup;
 			children = (
+				71E158491CDB941C00DC8BE6 /* Resources */,
 				7100C05F1CD116C700016649 /* Application */,
 				7100C0631CD116C700016649 /* Assets.xcassets */,
 				7100C0641CD116C700016649 /* CoreData */,
@@ -273,6 +276,14 @@
 				7100C0841CD116C700016649 /* Steam_ReaderUITests.swift */,
 			);
 			path = SteamReaderUITests;
+			sourceTree = "<group>";
+		};
+		71E158491CDB941C00DC8BE6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71E1584A1CDB942E00DC8BE6 /* news.css */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		8EB5E5E71579F043D0132387 /* Pods */ = {
@@ -404,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7100C0941CD116C700016649 /* SearchView.xib in Resources */,
+				71E1584B1CDB942E00DC8BE6 /* news.css in Resources */,
 				7100C0911CD116C700016649 /* Main.storyboard in Resources */,
 				7112D3731CD397D9005AF0FD /* AppHeaderView.xib in Resources */,
 				7100C0901CD116C700016649 /* LaunchScreen.storyboard in Resources */,

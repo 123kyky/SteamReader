@@ -8,14 +8,15 @@
 
 import UIKit
 
-class NewsItemView: UIView {
+class NewsItemView: UIView, UIWebViewDelegate {
     @IBOutlet var view: UIView!
     @IBOutlet weak var webView: UIWebView!
     
     var newsItem: NewsItem! {
         didSet {
             if newsItem.contents != nil {
-                webView.loadHTMLString(newsItem.contents!, baseURL: nil)
+                let html = "<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"news.css\"></head>" + "<body>\(newsItem.contents!)</body></html>"
+                webView.loadHTMLString(html, baseURL: NSBundle.mainBundle().bundleURL)
             }
         }
     }
@@ -28,6 +29,11 @@ class NewsItemView: UIView {
         view.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+    }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        // TODO: Handle news navigation (back button)
+        return navigationType == .Other
     }
 
 }
