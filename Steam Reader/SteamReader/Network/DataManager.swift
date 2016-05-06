@@ -35,6 +35,7 @@ class DataManager: NSObject {
     static let AppListUpdatedNotificationName = "AppListUpdatedNotificationName"
     static let FeaturedAppsUpdatedNotificationName = "FeaturedAppsUpdatedNotificationName"
     
+    // TODO: MR_saveWithBlock here
     func importApps(json: JSON) {
         // Build dictionaries for import
         var appsRaw: [[NSObject : AnyObject]] = []

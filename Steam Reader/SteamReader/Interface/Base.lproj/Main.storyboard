@@ -30,7 +30,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAL-Tj-bE2">
-                                <rect key="frame" x="271" y="80" width="58" height="30"/>
+                                <rect key="frame" x="271" y="64" width="58" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MFr-fT-Maz"/>
@@ -51,7 +51,7 @@
                             <constraint firstItem="tCD-Zc-KpD" firstAttribute="centerX" secondItem="elZ-3O-Ave" secondAttribute="centerX" id="GND-fs-Y6q"/>
                             <constraint firstItem="XVK-KV-c0j" firstAttribute="width" secondItem="elZ-3O-Ave" secondAttribute="width" id="Ggp-gV-fI5"/>
                             <constraint firstItem="yAL-Tj-bE2" firstAttribute="centerX" secondItem="elZ-3O-Ave" secondAttribute="centerX" id="INx-HY-Xxi"/>
-                            <constraint firstItem="yAL-Tj-bE2" firstAttribute="top" secondItem="LoI-Kc-hp7" secondAttribute="bottom" constant="16" id="KEA-7E-Zta"/>
+                            <constraint firstItem="yAL-Tj-bE2" firstAttribute="top" secondItem="LoI-Kc-hp7" secondAttribute="bottom" id="KEA-7E-Zta"/>
                             <constraint firstItem="tCD-Zc-KpD" firstAttribute="top" secondItem="LoI-Kc-hp7" secondAttribute="bottom" id="QiK-fx-QCB"/>
                             <constraint firstItem="XVK-KV-c0j" firstAttribute="centerX" secondItem="elZ-3O-Ave" secondAttribute="centerX" id="WGL-OW-FfB"/>
                             <constraint firstItem="tCD-Zc-KpD" firstAttribute="leading" secondItem="elZ-3O-Ave" secondAttribute="leadingMargin" constant="-20" id="Xaj-EA-Cbi"/>

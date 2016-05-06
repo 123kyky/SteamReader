@@ -61,6 +61,12 @@ class FeaturedViewController: UIViewController, AppsTableViewDelegate, SearchVie
         appsTableView.sections = [special, newReleases, topSellers, comingSoon]
         appsTableView.searchContents = CoreDataInterface.singleton.allApps()
         
+        for section in appsTableView.sections {
+            for app in section.apps {
+                print(app.name, app.type)
+            }
+        }
+        
         NetworkManager.singleton.fetchDetailsForApps(special.apps + newReleases.apps + topSellers.apps + comingSoon.apps)
     }
 

@@ -81,10 +81,11 @@ class AppsTableView: UIView, UITableViewDelegate, UITableViewDataSource {
             cell = AppHeaderCell(style: .Default, reuseIdentifier: CellIdentifier)
         }
         
+        cell!.selectionStyle = .None
+        
         let app = filtering ? filteredContents[indexPath.row] : sections[indexPath.section].apps[indexPath.row]
         cell!.appView!.configureWithApp(app)
         cell!.appView!.imageView.image = nil
-        
         if filtering && app.details == nil {
             NetworkManager.singleton.fetchDetailsForApps([app])
         }

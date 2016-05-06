@@ -90,6 +90,8 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
             cell = NewsItemHeaderCell(style: .Default, reuseIdentifier: CellIdentifier)
         }
         
+        cell!.selectionStyle = .None
+        
         let newsItem = newsItems[indexPath.row]
         cell!.newsItemView!.configure(newsItem)
         

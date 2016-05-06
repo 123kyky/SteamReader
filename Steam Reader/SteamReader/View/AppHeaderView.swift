@@ -20,6 +20,7 @@ class AppHeaderView: UIView {
     @IBOutlet weak var scoreLabel: UILabel!
     
     var app: App?
+    var isObserving = false
     
     var gradientLayer = CAGradientLayer()
     
@@ -36,6 +37,10 @@ class AppHeaderView: UIView {
     }
     
     func importView() {
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+        
         NSBundle.mainBundle().loadNibNamed("AppHeaderView", owner: self, options: nil)
         addSubview(view)
         view.snp_makeConstraints { (make) in
@@ -53,10 +58,15 @@ class AppHeaderView: UIView {
     }
     
     func configureWithApp(app: App?) {
+        if isObserving {
+            app!.removeObserver(self, forKeyPath: "details")
+        }
+        
         self.app = app
         nameLabel.text = app?.name
         
         app!.addObserver(self, forKeyPath: "details", options: NSKeyValueObservingOptions.New, context: nil)
+        isObserving = true
         if app!.details != nil {
             configureWithDetails(app!.details!)
         }
@@ -65,11 +75,7 @@ class AppHeaderView: UIView {
     func configureWithDetails(details: AppDetails) {
         let currencyFormatter = CurrencyFormatter()
         
-        // TODO: About label tap should take to website
-        // TODO: Image disappears when scrolling
-        
         let score = details.metacriticScore == 0 ? "--" : details.metacriticScore!.stringValue
-        
         var htmlAttributes: NSAttributedString? {
             guard
                 let data = details.about!.dataUsingEncoding(NSUTF8StringEncoding)
@@ -86,9 +92,11 @@ class AppHeaderView: UIView {
         priceLabel.text = currencyFormatter.stringFromSteamPrice(details.currentPrice!)
         releaseLabel.text = details.releaseDate!
         scoreLabel.text = score + "/100"
-        imageView.af_setImageWithURL(NSURL(string: details.headerImage!)!, placeholderImage: nil, filter: nil, imageTransition: .CrossDissolve(0.3), completion: { response in
-            self.imageView.image = response.result.value
-            self.gradientLayer.frame = self.imageView.bounds
+        imageView.af_setImageWithURL(NSURL(string: details.headerImage!)!, placeholderImage: nil, filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: imageView.frame.size, radius: 5), imageTransition: .CrossDissolve(0.2), completion: { response in
+            Async.main {
+                self.imageView.image = response.result.value
+                self.gradientLayer.frame = self.imageView.bounds
+            }
         })
     }
     
@@ -101,7 +109,10 @@ class AppHeaderView: UIView {
     }
     
     deinit {
-        app?.removeObserver(self, forKeyPath: "details")
+        if isObserving {
+            app?.removeObserver(self, forKeyPath: "details")
+            isObserving = false
+        }
     }
 
 }
@@ -121,6 +132,18 @@ class AppHeaderCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        appView?.imageView.af_cancelImageRequest()
+        appView?.imageView.layer.removeAllAnimations()
+        appView?.imageView.image = nil
+        if appView != nil && (appView!.isObserving) {
+            appView!.app!.removeObserver(appView!, forKeyPath: "details")
+            appView!.isObserving = false
+        }
     }
     
 }

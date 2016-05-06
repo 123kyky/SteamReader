@@ -16,7 +16,7 @@ class CoreDataInterface: NSObject {
     
     // MARK: - Apps
     
-    let gameType = 0
+    let gameType = NSNumber(int: 0)
     
     func allApps() -> [App] {
         return App.MR_findAllInContext(context) as? [App] ?? []
@@ -43,7 +43,7 @@ class CoreDataInterface: NSObject {
     }
     
     func featuredGamesForKey(key: String) -> [App] {
-        return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.%@ == %@", key, NSNumber(bool: true))) as? [App] ?? []
+        return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.%@ == %@ && SELF.type == %@", key, NSNumber(bool: true), gameType)) as? [App] ?? []
     }
     
     // MARK: - AppDetails
