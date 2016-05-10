@@ -10,12 +10,12 @@ PODS:
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.3.1)
-  - AlamofireImage (~> 2.4.0)
-  - AsyncSwift (~> 1.7.2)
-  - MagicalRecord (~> 2.3.2)
-  - SnapKit (~> 0.20.0)
-  - SwiftyJSON (~> 2.3.2)
+  - Alamofire (~> 3.3)
+  - AlamofireImage (~> 2.4)
+  - AsyncSwift (~> 1.7)
+  - MagicalRecord (~> 2.3)
+  - SnapKit (~> 0.20)
+  - SwiftyJSON (~> 2.3)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc

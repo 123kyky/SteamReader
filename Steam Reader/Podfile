@@ -2,11 +2,11 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'SteamReader' do
-pod 'Alamofire', '~> 3.3.1'
-pod 'AlamofireImage', '~> 2.4.0'
-pod 'SwiftyJSON', '~> 2.3.2'
-pod 'MagicalRecord', '~> 2.3.2'
-pod 'SnapKit', '~> 0.20.0'
-pod 'AsyncSwift', '~> 1.7.2'
-#pod 'Spring', '~> 1.0.3'
+pod 'Alamofire', '~> 3.3'
+pod 'AlamofireImage', '~> 2.4'
+pod 'SwiftyJSON', '~> 2.3'
+pod 'MagicalRecord', '~> 2.3'
+pod 'SnapKit', '~> 0.20'
+pod 'AsyncSwift', '~> 1.7'
+#pod 'Spring', '~> 1.0'
 end
