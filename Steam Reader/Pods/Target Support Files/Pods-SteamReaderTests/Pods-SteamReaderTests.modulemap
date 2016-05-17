@@ -1,0 +1,6 @@
+framework module Pods_SteamReaderTests {
+  umbrella header "Pods-SteamReaderTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -2,11 +2,20 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'SteamReader' do
-pod 'Alamofire', '~> 3.3'
+pod 'Alamofire', '~> 3.4'
 pod 'AlamofireImage', '~> 2.4'
 pod 'SwiftyJSON', '~> 2.3'
 pod 'MagicalRecord', '~> 2.3'
-pod 'SnapKit', '~> 0.20'
+pod 'SnapKit', '~> 0.21'
 pod 'AsyncSwift', '~> 1.7'
 #pod 'Spring', '~> 1.0'
+
+target 'SteamReaderTests' do
+    inherit! :search_paths
+end
+
+target 'SteamReaderUITests' do
+    inherit! :search_paths
+end
+
 end
