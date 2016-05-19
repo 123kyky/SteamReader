@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 import Async
 
-class NetworkInterface: NSObject, NSURLSessionDelegate {
+class NetworkInterface: NSObject {
     static let singleton = NetworkInterface()
     let manager: Manager!
     
