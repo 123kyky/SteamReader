@@ -25,6 +25,12 @@ class NetworkInterface: NSObject {
         let reachability = NetworkReachabilityManager(host: "www.store.steampowered.com/")
         reachability?.listener = { status in
             print("Network Status Changed: \(status)")
+            switch status {
+            case NetworkReachabilityManager.NetworkReachabilityStatus.Reachable(_):
+                print("Steam is available!")
+            default:
+                print("Steam is unreachable at this time!")
+            }
         }
         reachability?.startListening()
         
@@ -82,7 +88,8 @@ class NetworkInterface: NSObject {
     }
     
     func featured(success: (JSON) -> Void, failure: (NSError?) -> Void) {
-        let request = manager.request(.GET, "http://store.steampowered.com/api/featuredcategories/", parameters: ["trailer" : false])
+        let request = manager.request(.GET, "http://store.steampowered.com/api/featuredcategories/", parameters: ["trailer" : false],
+                                      headers: ["Content" : "application/json"])
         if !isRequestActive(request) {
             print("Starting Request:")
             print(request)
