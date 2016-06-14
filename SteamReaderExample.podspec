@@ -62,7 +62,7 @@ s.ios.vendored_frameworks = 'path/to/framework.framework'
 s.ios.vendored_libraries = 'path/to/library.a'
 s.ios.resource_bundles = { 'Assets' => 'path/to/assets/*.{png, jpg}' }
 # use resources for multiple
-s.ios.resources = 'path/to/resource'
+s.ios.resources = {'path/to/resource'}
 s.ios.exclude_files = 'path/to/excluded'
 # use preserved_paths for multiple
 s.ios.preserve_path = 'path/to/required'
