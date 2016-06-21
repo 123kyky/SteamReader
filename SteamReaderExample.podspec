@@ -53,6 +53,7 @@ s.ios.prefix_header_file = 'path/to/prefix.pch'
 s.module_name = 'module_name'
 s.ios.header_dir = 'path/to/put/headers'
 s.ios.header_mappings_dir = 'path/to/headers'
+s.header_mappings_dir = 'path/to/headers'
 
 # Files
 s.ios.source_files = 'SteamReader/**/*.swift'
@@ -69,28 +70,19 @@ s.ios.preserve_path = 'path/to/required'
 s.ios.module_map = 'path/to/*.modulemap'
 
 # Subspec
-subspec 'Network' do |sub|
-    sub.source_files = 'SteamReader/Network/*.swift'
+s.subspec 'CoreData' do |sub|
+sub.source_files = 'SteamReader/CoreData'
 end
 
-subspec 'CoreData' do |sub|
-    sub.source_files = 'SteamReader/CoreData'
+s.subspec 'Network' do |sub|
+sub.dependcy 'SteamReader/CoreData'
+    sub.source_files = 'SteamReader/Network/*.swift'
+
+    sub.subspec 'NetworkAdmin' do |nested|
+        nested.source_files = 'SteamReader/Network/Admin/*.swift'
+    end
 end
 
 s.default_subspecs = 'CoreData'
-
-
-
-
-
-
-  s.ios.deployment_target = '8.0'
-  # s.resource_bundles = {
-  #   'SteamReader' => ['SteamReader/Assets/*.png']
-  # }
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
-
 
 end

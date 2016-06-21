@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 # Library
 s.name = 'SteamReader'
 s.version = '0.1.0'
-s.cocoapods_version = '1.0.0'
+s.cocoapods_version = '1.0.1'
 # use s.authors to add more authors
 s.author = { 'Kyle Roberts' => '123kyle.roberts@gmail.com' }
 s.social_media_url = "https://twitter.com/TheKyKy123"
@@ -18,7 +18,7 @@ s.description = <<-DESC
     A simple app to browse and subscribe to Steam game news.
     A simple app to browse and subscribe to Steam game news.
 DESC
-s.screenshots = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+s.screenshots = ''
 s.documentation_url = 'https://github.com/123kyky/SteamReader'
 
 
