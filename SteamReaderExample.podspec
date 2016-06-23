@@ -71,11 +71,11 @@ s.ios.module_map = 'path/to/*.modulemap'
 
 # Subspec
 s.subspec 'CoreData' do |sub|
-sub.source_files = 'SteamReader/CoreData'
+    sub.source_files = 'SteamReader/CoreData'
 end
 
 s.subspec 'Network' do |sub|
-sub.dependcy 'SteamReader/CoreData'
+    sub.dependency 'SteamReader/CoreData'
     sub.source_files = 'SteamReader/Network/*.swift'
 
     sub.subspec 'NetworkAdmin' do |nested|
