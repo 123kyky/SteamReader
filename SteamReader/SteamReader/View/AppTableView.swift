@@ -21,13 +21,27 @@ class AppTableView: UIView, UITableViewDelegate, UITableViewDataSource {
         didSet {
             app.addObserver(self, forKeyPath: "newsItems", options: NSKeyValueObservingOptions.New, context: nil)
             NetworkManager.singleton.fetchNewsForApp(app)
-            if app.newsItems.count > 0 { newsItems = app.newsItems.allObjects as! [NewsItem] }
+            if app.newsItems.count > 0 {
+                newsItems = app.newsItems.allObjects as! [NewsItem]
+            }
+            
             if oldValue != nil {
                 oldValue.removeObserver(self, forKeyPath: "newsItems")
             }
         }
     }
-    var newsItems: [NewsItem]! = []
+    private var _newsItems: [NewsItem]! = [];
+    var newsItems: [NewsItem]! {
+        set {
+            _newsItems = newValue.sort({ (item1, item2) -> Bool in
+                return item1.date!.compare(item2.date!) == .OrderedDescending
+            })
+        }
+        get {
+            return _newsItems
+        }
+        
+    }
     
     var delegate: AppTableViewDelegate?
     
