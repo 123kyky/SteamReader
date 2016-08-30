@@ -1,14 +1,14 @@
 //
-//  SubscriptionsViewController.swift
-//  Steam Reader
+//  FavoritesViewController.swift
+//  SteamReader
 //
-//  Created by Kyle Roberts on 4/26/16.
+//  Created by Kyle Roberts on 8/29/16.
 //  Copyright © 2016 Kyle Roberts. All rights reserved.
 //
 
 import UIKit
 
-class SubscriptionsViewController: UIViewController {
+class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

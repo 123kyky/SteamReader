@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		19A8ED6A486A41DB016A37CD /* Pods_SteamReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4614360C0FF5AFC9EFF507B /* Pods_SteamReader.framework */; };
 		2773DCAE1D75098100F545A9 /* SteamKey in Resources */ = {isa = PBXBuildFile; fileRef = 2773DCAD1D75098100F545A9 /* SteamKey */; };
+		2773DCB01D7511E600F545A9 /* FavoritesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773DCAF1D7511E600F545A9 /* FavoritesTableView.swift */; };
+		2773DCB21D75124800F545A9 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773DCB11D75124800F545A9 /* FavoritesViewController.swift */; };
 		2D9EAD88A933A706040CB14A /* Pods_SteamReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5627115791627E5C6070A798 /* Pods_SteamReaderTests.framework */; };
 		7100C0851CD116C700016649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0601CD116C700016649 /* AppDelegate.swift */; };
 		7100C0881CD116C700016649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7100C0631CD116C700016649 /* Assets.xcassets */; };
@@ -43,7 +45,6 @@
 		7100C0981CD116C700016649 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07A1CD116C700016649 /* SearchView.swift */; };
 		7100C0991CD116C700016649 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07C1CD116C700016649 /* AppViewController.swift */; };
 		7100C09A1CD116C700016649 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07D1CD116C700016649 /* FeaturedViewController.swift */; };
-		7100C09B1CD116C700016649 /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */; };
 		7100C0A01CD1178400016649 /* Steam_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0811CD116C700016649 /* Steam_ReaderTests.swift */; };
 		7100C0A11CD1178900016649 /* Steam_ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0841CD116C700016649 /* Steam_ReaderUITests.swift */; };
 		7112D3711CD3978D005AF0FD /* NewsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7112D3701CD3978D005AF0FD /* NewsItemView.xib */; };
@@ -84,6 +85,8 @@
 /* Begin PBXFileReference section */
 		1F4D0E2F8C45A9CD09C6AA6E /* Pods-SteamReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReaderTests/Pods-SteamReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2773DCAD1D75098100F545A9 /* SteamKey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SteamKey; sourceTree = "<group>"; };
+		2773DCAF1D7511E600F545A9 /* FavoritesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableView.swift; sourceTree = "<group>"; };
+		2773DCB11D75124800F545A9 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2A2370B3C5F6A31432947B66 /* Pods-SteamReaderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamReaderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamReaderUITests/Pods-SteamReaderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50B017CB0A60FD9A4841C428 /* Pods_SteamReaderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamReaderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5627115791627E5C6070A798 /* Pods_SteamReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +115,6 @@
 		7100C07A1CD116C700016649 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7100C07C1CD116C700016649 /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		7100C07D1CD116C700016649 /* FeaturedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
-		7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		7100C0801CD116C700016649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7100C0811CD116C700016649 /* Steam_ReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steam_ReaderTests.swift; sourceTree = "<group>"; };
 		7100C0831CD116C700016649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				7100C0791CD116C700016649 /* AppTableView.swift */,
 				7112D37C1CD3A8B1005AF0FD /* NewsItemHeaderView.swift */,
 				7112D3761CD39835005AF0FD /* NewsItemView.swift */,
+				2773DCAF1D7511E600F545A9 /* FavoritesTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,7 +276,7 @@
 				7100C07D1CD116C700016649 /* FeaturedViewController.swift */,
 				7100C07C1CD116C700016649 /* AppViewController.swift */,
 				71EDD50A1CD2800F00D21A9E /* NewsItemViewController.swift */,
-				7100C07E1CD116C700016649 /* SubscriptionsViewController.swift */,
+				2773DCB11D75124800F545A9 /* FavoritesViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712F20681CD78C3B00C67C1B /* DataManager.swift in Sources */,
+				2773DCB21D75124800F545A9 /* FavoritesViewController.swift in Sources */,
 				71E1584E1CDBB78600DC8BE6 /* CurrencyFormatter.swift in Sources */,
 				712F20631CD7822800C67C1B /* CoreDataInterface.swift in Sources */,
 				7112D3771CD39835005AF0FD /* NewsItemView.swift in Sources */,
@@ -658,10 +662,10 @@
 				7100C09A1CD116C700016649 /* FeaturedViewController.swift in Sources */,
 				7100C08F1CD116C700016649 /* Steam_Reader.xcdatamodeld in Sources */,
 				7100C08C1CD116C700016649 /* App.swift in Sources */,
-				7100C09B1CD116C700016649 /* SubscriptionsViewController.swift in Sources */,
 				7100C0971CD116C700016649 /* AppTableView.swift in Sources */,
 				7100C08A1CD116C700016649 /* _AppDetails.swift in Sources */,
 				7100C0961CD116C700016649 /* AppsTableView.swift in Sources */,
+				2773DCB01D7511E600F545A9 /* FavoritesTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

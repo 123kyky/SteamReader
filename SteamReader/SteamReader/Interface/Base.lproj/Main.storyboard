@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PDI-hd-IwD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PDI-hd-IwD">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -66,7 +66,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Featured" id="0ci-3y-HGy"/>
+                    <navigationItem key="navigationItem" title="Featured" id="0ci-3y-HGy">
+                        <barButtonItem key="rightBarButtonItem" title="⭐️" style="plain" id="gEM-hK-egN">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="he9-14-EIS">
+                                <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="⭐️"/>
+                                <connections>
+                                    <segue destination="oSu-2X-a3L" kind="show" identifier="ShowFavoritesTable" id="tH5-0z-Wgl"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="appsTableView" destination="tCD-Zc-KpD" id="3f0-HQ-saR"/>
                         <outlet property="refreshButton" destination="yAL-Tj-bE2" id="V7b-pd-p5D"/>
@@ -78,6 +89,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXf-Up-iID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="111" y="-67"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="SQ8-F9-5U6">
+            <objects>
+                <viewController id="oSu-2X-a3L" customClass="FavoritesViewController" customModule="SteamReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k41-j2-lip"/>
+                        <viewControllerLayoutGuide type="bottom" id="lRz-DN-zDc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xAy-wF-djJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1E7-Yu-b2d" customClass="FavoritesTableView" customModule="SteamReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lRz-DN-zDc" firstAttribute="top" secondItem="1E7-Yu-b2d" secondAttribute="bottom" id="fkV-b7-ho7"/>
+                            <constraint firstItem="1E7-Yu-b2d" firstAttribute="leading" secondItem="xAy-wF-djJ" secondAttribute="leadingMargin" constant="-20" id="ggQ-Lb-O1q"/>
+                            <constraint firstItem="1E7-Yu-b2d" firstAttribute="top" secondItem="k41-j2-lip" secondAttribute="bottom" id="jZq-Dq-81i"/>
+                            <constraint firstItem="1E7-Yu-b2d" firstAttribute="centerX" secondItem="xAy-wF-djJ" secondAttribute="centerX" id="mUX-mz-8Ny"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1E7-Yu-b2d" secondAttribute="trailing" constant="-20" id="xWr-RZ-O6Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="YlC-Ij-lYU"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQD-9O-8ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="933" y="-750"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yZ1-JT-zJC">
