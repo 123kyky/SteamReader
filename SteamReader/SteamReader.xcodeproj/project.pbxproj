@@ -58,6 +58,7 @@
 		712F20651CD782BB00C67C1B /* NetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F20641CD782BB00C67C1B /* NetworkInterface.swift */; };
 		712F20671CD78AF500C67C1B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F20661CD78AF500C67C1B /* NetworkManager.swift */; };
 		712F20681CD78C3B00C67C1B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7100C0A21CD1205900016649 /* DataManager.swift */; };
+		71D408651D7F46E800201FEF /* FavoritesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71D408641D7F46E800201FEF /* FavoritesTableView.xib */; };
 		71E1584B1CDB942E00DC8BE6 /* news.css in Resources */ = {isa = PBXBuildFile; fileRef = 71E1584A1CDB942E00DC8BE6 /* news.css */; };
 		71E1584E1CDBB78600DC8BE6 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1584D1CDBB78600DC8BE6 /* CurrencyFormatter.swift */; };
 		71E158501CDBB88B00DC8BE6 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1584F1CDBB88B00DC8BE6 /* DateFormatter.swift */; };
@@ -130,6 +131,7 @@
 		712F20621CD7822800C67C1B /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
 		712F20641CD782BB00C67C1B /* NetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterface.swift; sourceTree = "<group>"; };
 		712F20661CD78AF500C67C1B /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		71D408641D7F46E800201FEF /* FavoritesTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesTableView.xib; sourceTree = "<group>"; };
 		71E1584A1CDB942E00DC8BE6 /* news.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = news.css; sourceTree = "<group>"; };
 		71E1584D1CDBB78600DC8BE6 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		71E1584F1CDBB88B00DC8BE6 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				7100C0731CD116C700016649 /* AppTableView.xib */,
 				7112D37A1CD3A885005AF0FD /* NewsItemHeaderView.xib */,
 				7112D3701CD3978D005AF0FD /* NewsItemView.xib */,
+				71D408641D7F46E800201FEF /* FavoritesTableView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				7100C0911CD116C700016649 /* Main.storyboard in Resources */,
 				7112D3731CD397D9005AF0FD /* AppHeaderView.xib in Resources */,
 				7100C0901CD116C700016649 /* LaunchScreen.storyboard in Resources */,
+				71D408651D7F46E800201FEF /* FavoritesTableView.xib in Resources */,
 				7112D37B1CD3A885005AF0FD /* NewsItemHeaderView.xib in Resources */,
 				7100C0921CD116C700016649 /* AppsTableView.xib in Resources */,
 				7100C0881CD116C700016649 /* Assets.xcassets in Resources */,

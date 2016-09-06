@@ -19,6 +19,7 @@ class AppViewController: UIViewController, AppTableViewDelegate {
         // Do any additional setup after loading the view.
         appTableView.delegate = self
         appTableView.app = app
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "⭐️", style: .Plain, target: self, action: #selector(favoriteButtonTapped))
     }
     
     // MARK: - AppTableViewDelegate
@@ -34,6 +35,11 @@ class AppViewController: UIViewController, AppTableViewDelegate {
                 destinationViewController.newsItem = sender as! NewsItem
             }
         }
+    }
+    
+    func favoriteButtonTapped(sender: AnyObject) {
+        print("faved item " + app!.name!)
+        app!.subscribed = NSNumber(bool: true)
     }
 
 }

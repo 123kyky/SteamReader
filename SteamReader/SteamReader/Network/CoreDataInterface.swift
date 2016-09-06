@@ -46,6 +46,10 @@ class CoreDataInterface: NSObject {
         return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.%@ == %@ && SELF.type == %@", key, NSNumber(bool: true), gameType)) as? [App] ?? []
     }
     
+    func favoriteGames() -> [App] {
+        return App.MR_findAllWithPredicate(NSPredicate(format: "SELF.subscribed == %@", NSNumber(bool: true))) as? [App] ?? []
+    }
+    
     // MARK: - AppDetails
     
     func allAppDetails() -> [AppDetails] {
